@@ -1,5 +1,5 @@
 
-package gerenciadormidia;
+package geral;
 
 public class Principal {
     
