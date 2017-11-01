@@ -1,14 +1,38 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package midias;
 
-/**
- *
- * @author rafael
- */
-public class Partitura {
-    
+public class Partitura extends Midia {
+
+    protected static int aumentaCodigo = 0;
+    protected String instrumentos;
+    protected int ano;
+
+    public Partitura() {
+        
+        codigo = 0;
+        caminho = "";
+        titulo = "";
+        descricao = "";
+        genero = "";
+        autores = "";
+        instrumentos = "";
+        ano = 0;
+
+    }
+
+    public String getInstrumentos() {
+        return instrumentos;
+    }
+
+    public void setInstrumentos(String instrumentos) {
+        this.instrumentos = instrumentos;
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+
 }
