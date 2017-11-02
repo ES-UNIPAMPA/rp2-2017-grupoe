@@ -2,6 +2,7 @@ package midias;
 
 public class Midia {
 
+    protected char abreviatura;
     protected int codigo;
     protected String caminho;
     protected String titulo;
