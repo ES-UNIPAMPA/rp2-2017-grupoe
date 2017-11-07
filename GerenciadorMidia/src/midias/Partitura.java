@@ -1,6 +1,5 @@
 package midias;
 
-
 public class Partitura extends Midia {
 
     protected static int aumentaCodigo = 0;
@@ -35,4 +34,5 @@ public class Partitura extends Midia {
     public void setAno(int ano) {
         this.ano = ano;
     }
+
 }
