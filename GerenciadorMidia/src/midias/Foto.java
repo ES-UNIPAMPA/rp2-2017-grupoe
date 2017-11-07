@@ -11,12 +11,12 @@ public class Foto extends Midia {
     private String fotografo;
     private String pessoas;
     private String local;
-    private int hora;
+    private String hora;
     private String Data;
-    private Date d;
+    private Date x;
     private static ArrayList<Foto> fotos = new ArrayList();
 
-    public Foto() throws ParseException {
+    public Foto() {
         this.codigo = "";
         this.caminho = "";
         this.titulo = "";
@@ -24,14 +24,13 @@ public class Foto extends Midia {
         this.fotografo = "";
         this.pessoas = "";
         this.local = "";
-        this.hora = 0;
+        this.hora = "";
         this.Data = "00/00/0000";
         //configuracao da data
-        Date d = new Date();
+        this.x = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        sdf.format(Data);
         try {
-            d = sdf.parse(Data);
+            x = sdf.parse(Data);
         } catch (ParseException erro) {
             System.out.println("Formato inválido!");
             erro.printStackTrace();
@@ -93,14 +92,14 @@ public class Foto extends Midia {
     /**
      * @return the hora
      */
-    public int getHora() {
+    public String getHora() {
         return hora;
     }
 
     /**
      * @param hora the hora to set
      */
-    public void setHora(int hora) {
+    public void setHora(String hora) {
         this.hora = hora;
     }
 
@@ -123,9 +122,7 @@ public class Foto extends Midia {
      */
     public String getAumentaCodigo() {
         return codigo;
-    }
-    
-
+    }   
     
    //Metodos criados
     public boolean criaArray() {
@@ -140,7 +137,7 @@ public class Foto extends Midia {
         return null;
     }
 
-    public Foto getFilme(String c) {
+    public Foto getFoto(String c) {
         for (int i = 0; i < fotos.size(); i++) {
             if (c.equals(fotos.get(i).getAumentaCodigo())) {
                 System.out.println(fotos.get(i).toString());
@@ -165,7 +162,7 @@ public class Foto extends Midia {
 
     //imprime as informacoes
     public String toString() {
-        return "\nCodigo: " + codigo + " \nCaminho: " + caminho + " \ntitulo: " + titulo + " \nDescricao: " + descricao + " \nGenero:  " + genero + " \nFotografo: " + fotografo + " \nPessoas: " + pessoas + " \nLocal: " + local + " \nData: " + d + " \nHora: " + hora + "\n";
+        return "\nCodigo: " + codigo + " \nCaminho: " + caminho + " \ntitulo: " + titulo + " \nDescricao: " + descricao + " \nFotografo: " + fotografo + " \nPessoas: " + pessoas + " \nLocal: " + local + " \nData: " + x + " \nHora: " + hora + "\n";
     }
 
     public int compareTo(Foto outraFoto) {

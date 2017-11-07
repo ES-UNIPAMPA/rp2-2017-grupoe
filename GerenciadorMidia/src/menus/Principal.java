@@ -25,7 +25,8 @@ public class Principal {
                     musica();
                     break;
                 case 2:
-                    foto();
+                    MenuFoto x = new MenuFoto();
+                    x.menu();
                     break;
                 case 3:
                     ebook();

@@ -2,7 +2,6 @@ package gerenciadores;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import listas.Midias;
 import midias.Filme;
 import midias.Midia;
 
@@ -37,7 +36,7 @@ public class GFilme implements gerPrincipal {
         System.out.println("Qual foi é a duracao do filme em minutos: ");
         a.setDuracao(entrada.nextInt());
         Filme.setLista(a);
-        Midias m = new Midias();
+        Midia m = new Midia();
         m.adicionarMidia(a);
         System.out.println("\nFilme adicionado com Sucesso!!!\n");
         return true;
@@ -79,13 +78,27 @@ public class GFilme implements gerPrincipal {
     }
 
     @Override
-    public boolean exclusao() {
+      public boolean exclusao() {
         Scanner entrada = new Scanner(System.in);
         System.out.println("Digite o codigo do Filme que deseja excluir: ");
         String codigo = entrada.next();
         Filme h = new Filme();
-        String deletado = h.delFilme(codigo);
-        System.out.println("O seguinte filme foi deletado com sucesso!!\n"+deletado);
+        Midia m = new Midia();
+        Filme temp = h.getFilme(codigo);
+        m.getMidia(codigo);
+        if (temp != null) {
+            System.out.println("Deseja realmente excluir esse filme?\n"
+                    + "1- SIM     2- NAO");
+            int resp = entrada.nextInt();
+            if (resp == 1) {
+                String deletado = h.delFilme(codigo);
+                m.delMidia(codigo);
+                System.out.println("Filme deletado com sucesso!!");
+                return true;
+            } else {
+                return false;
+            }
+        }
         return false;
     }
 
