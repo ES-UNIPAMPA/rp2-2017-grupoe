@@ -2,18 +2,23 @@ package midias;
 
 public class Midia {
 
-    protected int codigo;
+    protected String codigo;
     protected String caminho;
     protected String titulo;
     protected String descricao;
-    protected String genero;
-    protected String autores;
 
-    public int getCodigo() {
+    public Midia(String codigo, String caminho, String titulo, String descricao) {
+        this.codigo = codigo;
+        this.caminho = caminho;
+        this.titulo = titulo;
+        this.descricao = descricao;
+    }
+
+    public String getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
@@ -39,21 +44,5 @@ public class Midia {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
-    public String getAutores() {
-        return autores;
-    }
-
-    public void setAutores(String autores) {
-        this.autores = autores;
     }
 }
