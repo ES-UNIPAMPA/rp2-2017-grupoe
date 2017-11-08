@@ -11,7 +11,9 @@ public class Musica extends Midia {
     private String duracao;
     private String interprete;
     private String idioma;
-
+    private String autores;
+    private String genero;
+    
     public Musica(String codigo, String caminho, String titulo, String descricao, String genero, String autores, String ano, String duracao, String interprete, String idioma) {
         super(codigo, caminho, titulo, descricao);
         this.ano = ano;
@@ -58,7 +60,23 @@ public class Musica extends Midia {
     @Override
     public String toString() {
         String dados;
-        dados = "Título da musica: " + this.titulo + "\n" + "Autores da musica: " + this.autores + "\n" + "Descrição da musica: " + this.descricao + "\n" + "Genero da musica: " + this.genero + "\n" + "Idioma da musica: " + this.idioma + "\n" + "Interprete: " + this.interprete + "\n" + "Duração da musica:" + this.duracao;
+        dados = "Título da musica: " + this.titulo + "\n" + "Autores da musica: " + this.getAutores() + "\n" + "Descrição da musica: " + this.descricao + "\n" + "Genero da musica: " + this.getGenero() + "\n" + "Idioma da musica: " + this.idioma + "\n" + "Interprete: " + this.interprete + "\n" + "Duração da musica:" + this.duracao;
         return dados;
+    }
+
+    public String getAutores() {
+        return autores;
+    }
+
+    public void setAutores(String autores) {
+        this.autores = autores;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 }
