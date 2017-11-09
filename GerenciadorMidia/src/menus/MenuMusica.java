@@ -1,6 +1,7 @@
 package menus;
 
 import gerenciadores.GMusica;
+import java.io.File;
 import java.util.Random;
 import java.util.Scanner;
 import midias.Midia;
@@ -35,9 +36,10 @@ public class MenuMusica implements IMenu {
         descricao = entrada.nextLine();
         System.out.println("Digite os interpretes da música:");
         interpretes = entrada.nextLine();
-        System.out.println("Digite um codigo qualquer: ");
-        codigo = entrada.nextLine();
-        caminho = "C:\\Débora\\Área de Trabalho";
+        int codigoNumero = gerador.nextInt(1000);
+        codigo = "" + codigoNumero;
+        System.out.println("Codigo da sua musica: " + codigo);
+        caminho = new java.io.File(".").getAbsolutePath();
         Musica musica = new Musica(codigo, caminho, titulo, descricao, genero, autores, ano, duracao, interpretes, idioma);
         if (gerenciadorMusica.adicionar(musica)) {
             System.out.println("Música adicionada com sucesso!");
@@ -71,7 +73,6 @@ public class MenuMusica implements IMenu {
         consulta = entrada.nextLine();
         Musica musica = (Musica) gerenciadorMusica.consulta(consulta);
         return musica;
-
     }
 
     @Override

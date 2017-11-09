@@ -1,6 +1,5 @@
 package menus;
 
-import gerenciadores.GFilme;
 import java.util.Scanner;
 import midias.Musica;
 
@@ -56,13 +55,13 @@ public class Principal {
         Scanner entrada = new Scanner(System.in);
         int opcao;
         do {
-           
+
             System.out.println("1- Adicionar nova música.");
             System.out.println("2- Editar música.");
             System.out.println("3- consultar música.");
             System.out.println("4- Excluir música.");
             System.out.println("5- Voltar ao menu principal.");
-             System.out.println("Digite a opção desejada:");
+            System.out.println("Digite a opção desejada:");
             opcao = entrada.nextInt();
             switch (opcao) {
                 case 1:
@@ -73,7 +72,11 @@ public class Principal {
                     break;
                 case 3:
                     Musica musica = (Musica) menuMusica.consultarMidia();
-                    System.out.println(musica.toString());
+                    if (musica == null) {
+                        System.out.println("Musica inexistente.");
+                    } else {
+                        System.out.println(musica.toString());
+                    }
                     break;
                 case 4:
                     menuMusica.excluirMidia();
