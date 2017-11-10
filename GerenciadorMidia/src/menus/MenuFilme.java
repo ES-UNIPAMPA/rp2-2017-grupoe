@@ -2,6 +2,7 @@ package menus;
 
 import gerenciadores.GMidia;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 import midias.Filme;
@@ -13,7 +14,7 @@ import midias.Midia;
  */
 public class MenuFilme implements IMenu {
 
-    GMidia gerenciadorFilme = new GMidia();
+    GMidia gerenciadorFilme = new GMidia(new ArrayList());
 
     void filme() {
         Scanner entrada = new Scanner(System.in);
@@ -77,7 +78,7 @@ public class MenuFilme implements IMenu {
         local = entrada.nextLine();
         int codigoNumero = gerador.nextInt(1000);
         codigo = "" + codigoNumero;
-        System.out.println("Codigo da sua musica: " + codigo);
+        System.out.println("Codigo do seu filme: " + codigo);
         caminho = new java.io.File(".").getAbsolutePath();
         Filme filme = new Filme(codigo, caminho, titulo, descricao, genero, idioma, diretor, atores, duracao, ano);
         if (gerenciadorFilme.adicionar(filme)) {

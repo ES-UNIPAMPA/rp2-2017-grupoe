@@ -6,25 +6,25 @@ import midias.*;
 
 public class GMidia extends gerPrincipal {
 
-    List<Midia> listaMidia;
-
     /**
      * Construtor que inicializa a lista
+     *
+     * @param listaMidia recebe o tipo de lista desejada.
      */
-    public GMidia() {
-        listaMidia = new ArrayList<>();
+    public GMidia(List listaMidia) {
+        listMidia = listaMidia;
 
     }
 
     /**
      * Método para adicionar uma midia
      *
-     * @param midia
-     * @return
+     * @param midia Recebe a midia que será adicionada
+     * @return Retorna true caso a midia foi adicionada. Caso contrário retorna false.
      */
     @Override
     public boolean adicionar(Midia midia) {
-        return listaMidia.add(midia);
+        return listMidia.add(midia);
 
     }
 
@@ -37,23 +37,15 @@ public class GMidia extends gerPrincipal {
      */
     @Override
     public Midia consulta(String codigo) {
-        for (int i = 0; i < listaMidia.size(); i++) {
-            if (listaMidia.get(i).getCodigo().equalsIgnoreCase(codigo)) {
-                return listaMidia.get(i);
+        for (int i = 0; i < listMidia.size(); i++) {
+            if (listMidia.get(i).getCodigo().equalsIgnoreCase(codigo)) {
+                return listMidia.get(i);
             }
         }
         return null;
     }
 
-    /**
-     *
-     * @param midia
-     */
-    @Override
-    public void classifica(ArrayList<Midia> midia) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+    
     /**
      * Método para exibir uma midia
      *
@@ -63,9 +55,9 @@ public class GMidia extends gerPrincipal {
      */
     @Override
     public Midia exibir(String nome) {
-        for (int i = 0; i < listaMidia.size(); i++) {
-            if (listaMidia.get(i).getTitulo().equalsIgnoreCase(nome)) {
-                return listaMidia.get(i);
+        for (int i = 0; i < listMidia.size(); i++) {
+            if (listMidia.get(i).getTitulo().equalsIgnoreCase(nome)) {
+                return listMidia.get(i);
             }
         }
         return null;
@@ -81,9 +73,9 @@ public class GMidia extends gerPrincipal {
      */
     @Override
     public boolean edicao(String codigo, Midia novaMidia) {
-        for (int i = 0; i < listaMidia.size(); i++) {
-            if (listaMidia.get(i).getCodigo().equalsIgnoreCase(codigo)) {
-                listaMidia.add(i, novaMidia);
+        for (int i = 0; i < listMidia.size(); i++) {
+            if (listMidia.get(i).getCodigo().equalsIgnoreCase(codigo)) {
+                listMidia.add(i, novaMidia);
                 return true;
             }
         }
@@ -99,13 +91,18 @@ public class GMidia extends gerPrincipal {
      */
     @Override
     public boolean exclusao(String codigo) {
-        for (int i = 0; i < listaMidia.size(); i++) {
-            if (listaMidia.get(i).getCodigo().equalsIgnoreCase(codigo)) {
-                listaMidia.remove(i);
+        for (int i = 0; i < listMidia.size(); i++) {
+            if (listMidia.get(i).getCodigo().equalsIgnoreCase(codigo)) {
+                listMidia.remove(i);
                 return true;
             }
 
         }
         return false;
+    }
+
+    @Override
+    public void classifica(ArrayList<Midia> midia) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -4,9 +4,11 @@ package gerenciadores;
 import java.util.*;
 import midias.Midia;
 
-
+/**
+ * Classe abstrata com o métodos para os gerenciadores.
+ */
 public abstract class gerPrincipal {
-    protected List listMidia;
+    protected static List <Midia> listMidia;
     
     public abstract boolean adicionar(Midia midia);
     

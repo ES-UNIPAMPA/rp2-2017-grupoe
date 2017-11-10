@@ -22,7 +22,7 @@ public class GMusica extends gerPrincipal {
 /**
  * Método para adicionar uma midia
  * @param musica do tipo midia para efetuar a converção para o tipo Musica e efetuar a inclusão
- * @return 
+ * @return retorna true caso a música seja adicionada. Caso contrário retorna false.
  */
     @Override
     public boolean adicionar(Midia musica) {
