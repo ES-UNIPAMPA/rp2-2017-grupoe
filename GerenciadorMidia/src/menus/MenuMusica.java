@@ -1,7 +1,9 @@
 package menus;
 
-import gerenciadores.GMusica;
+
+import gerenciadores.GMidia;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 import midias.Midia;
@@ -13,7 +15,7 @@ import midias.Musica;
  */
 public class MenuMusica implements IMenu {
 
-    GMusica gerenciadorMusica = new GMusica();
+    GMidia gerenciadorMusica = new GMidia( new ArrayList());
     
     public void menuMusica(){
         Scanner entrada = new Scanner(System.in);
