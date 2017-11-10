@@ -16,6 +16,10 @@ public class GMidia extends gerPrincipal {
 
     }
 
+    public GMidia() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     /**
      * Método para adicionar uma midia
      *
