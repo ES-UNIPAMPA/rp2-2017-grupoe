@@ -1,7 +1,5 @@
 package midias;
 
-import java.util.ArrayList;
-
 public class Filme extends Midia {
 
     private String genero;
@@ -23,6 +21,7 @@ public class Filme extends Midia {
     /**
      * @return the aumentaCodigo
      */
+    @Override
     public String getCodigo() {
         return codigo;
     }
@@ -101,36 +100,26 @@ public class Filme extends Midia {
     public void setDuracao(String duracao) {
         this.duracao = duracao;
     }
-
-
-
-    @Override
-    public String toString() {
-        return "\nCodigo: " + codigo + " \nCaminho: " + caminho + " \ntitulo: " + titulo + " \nDescricao: " + descricao + " \nGenero:  " + getGenero() + " \nIdioma: " + idioma + " \nDiretor: " + diretor + " \nAtores: " + atores + " \nAno: " + ano + " \nDuracao: " + duracao + "\n";
-    }
-
-    public int compareTo(Filme outroFilme) {
-        if (this.codigo == outroFilme.getCodigo()) {
-            return -1;
-        } else if (this.codigo != outroFilme.getCodigo()) {
-            return +1;
-        } else {
-            return 0;
-        }
-    }
-
-    /**
-     * @return the genero
-     */
-    public String getGenero() {
-        return genero;
-    }
-
+    
     /**
      * @param genero the genero to set
      */
     public void setGenero(String genero) {
         this.genero = genero;
+    }
+
+
+
+    //TO STRING
+    @Override
+    public String toString() {
+        return "\nCodigo: " + codigo + " \nCaminho: " + caminho + " \nTitulo: " + titulo + " \nDescricao: " + descricao + " \nGenero:  " + getGenero() + " \nIdioma: " + idioma + " \nDiretor: " + diretor + " \nAtores: " + atores + " \nAno: " + ano + " \nDuracao: " + duracao + "\n";
+    }
+    /**
+     * @return the genero
+     */
+    public String getGenero() {
+        return genero;
     }
 
 }

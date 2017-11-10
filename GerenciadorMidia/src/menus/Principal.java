@@ -14,11 +14,9 @@ public class Principal {
             System.out.println("***Banco de Midias***\n"
                     + "Essas são os tipos mídias disponíveis:");
             System.out.println("1- Música");
-            System.out.println("2- Foto");
-            System.out.println("3- Ebook");
-            System.out.println("4- Filme");
-            System.out.println("5- Partituras");
-            System.out.println("6- Sair");
+            System.out.println("2- Filme");
+            System.out.println("3- Partituras");
+            System.out.println("0- Sair");
             System.out.println("Digite a opção de mídia desejada:");
             opcao = entrada.nextInt();
             switch (opcao) {
@@ -27,18 +25,13 @@ public class Principal {
                     musica();
                     break;
                 case 2:
-                    foto();
+                    MenuFilme menuFilme = new MenuFilme();
+                    menuFilme.filme();
                     break;
                 case 3:
-                    ebook();
-                    break;
-                case 4:
-                    //1filme();
-                    break;
-                case 5:
                     partituras();
                     break;
-                case 6:
+                case 0:
                     System.out.println("Até logo!");
                     break;
                 default:
@@ -47,7 +40,7 @@ public class Principal {
 
             }
 
-        } while (opcao != 6);
+        } while (opcao != 0);
 
     }
 
@@ -56,7 +49,7 @@ public class Principal {
         int opcao;
         do {
 
-            System.out.println("1- Adicionar nova música.");
+            System.out.println("\n1- Adicionar nova música.");
             System.out.println("2- Editar música.");
             System.out.println("3- consultar música.");
             System.out.println("4- Excluir música.");
@@ -89,19 +82,6 @@ public class Principal {
         } while (opcao != 5);
     }
 
-    private void foto() {
-    }
-
-    private void ebook() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    /*
-    private void filme() {
-        MenuFilme n = new MenuFilme();
-        n.inicial();
-    }
-     */
     private void partituras() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
