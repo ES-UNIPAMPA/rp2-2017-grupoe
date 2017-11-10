@@ -1,7 +1,6 @@
 package menus;
 
 import java.util.Scanner;
-import midias.Musica;
 
 public class Principal {
 
@@ -30,7 +29,8 @@ public class Principal {
                     menuFilme.filme();
                     break;
                 case 3:
-                    //partituras();
+                    MenuPartitura menuPartitura = new MenuPartitura();
+                    menuPartitura.partitura();
                     break;
                 case 0:
                     System.out.println("Até logo!");
