@@ -4,8 +4,7 @@ import java.util.Scanner;
 
 public class Principal {
 
-    MenuMusica menuMusica = new MenuMusica();
-
+    
     public void Menu() {
         int opcao;
         Scanner entrada = new Scanner(System.in);

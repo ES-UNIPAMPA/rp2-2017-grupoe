@@ -1,7 +1,7 @@
 package midias;
 
 /**
- *
+ * 
  * @author Débora Siqueira
  */
 public class Musica extends Midia {
@@ -63,7 +63,7 @@ public class Musica extends Midia {
     @Override
     public String toString() {
         String dados;
-        dados = "Caminho do Arquivo: " + this.caminho + "\n" + "Título da musica: " + this.titulo + "\n" + "Autores da musica: " + this.autores + "\n" + "Descrição da musica: " + this.descricao + "\n" + "Genero da musica: " + this.genero + "\n" + "Idioma da musica: " + this.idioma + "\n" + "Interprete: " + this.interprete + "\n" + "Duração da musica:" + this.duracao;
+        dados = "Caminho do Arquivo: " + this.caminho + "\n" + "Título da Música: " + this.titulo + "\n" + "Autores da Música: " + this.autores + "\n" + "Descrição da Música: " + this.descricao + "\n" + "Genero da Música: " + this.genero + "\n" + "Idioma da Música: " + this.idioma + "\n" + "Interprete: " + this.interprete + "\n" + "Duração da Música:" + this.duracao;
         return dados;
     }
 
