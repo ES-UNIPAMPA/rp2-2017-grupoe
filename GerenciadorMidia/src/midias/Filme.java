@@ -1,5 +1,9 @@
 package midias;
 
+/**
+ *
+ * @author Rafael
+ */
 public class Filme extends Midia {
 
     private String genero;
@@ -109,7 +113,11 @@ public class Filme extends Midia {
     }
 
 
-
+    /**
+     * Método toString para representar organizado os dados
+     *
+     * @return retorna uma String com todas as informações em ordem
+     */
     //TO STRING
     @Override
     public String toString() {

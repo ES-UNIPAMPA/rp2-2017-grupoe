@@ -15,7 +15,9 @@ import midias.Midia;
 public class MenuFilme implements IMenu {
 
     GMidia gerenciadorFilme = new GMidia(new ArrayList());
-
+/**
+ * @param metodo inicial do primeiro menu de interação dos filmes
+ */
     void filme() {
         Scanner entrada = new Scanner(System.in);
         int opcao;
@@ -53,6 +55,10 @@ public class MenuFilme implements IMenu {
         } while (opcao != 0);
     }
 
+    /**
+     * 
+     * @return preeche todas as variáveis, cria um objeto do tipo filme e adiciona na lista de Midias 
+     */
     @Override
     public boolean adicionarMidia() {
         Random gerador = new Random();
@@ -88,6 +94,10 @@ public class MenuFilme implements IMenu {
         return false;
     }
 
+    /**
+     * 
+     * @return confere se o filme existe, se sim, envia ele para o metodo exclusao 
+     */
     @Override
     public boolean excluirMidia() {
         Scanner entrada = new Scanner(System.in);
@@ -115,6 +125,11 @@ public class MenuFilme implements IMenu {
         return false;
     }
 
+    
+    /**
+     * 
+     * @return confere se existe o filme solicitado, se sim manda para o metodo consulta 
+     */
     @Override
     public Midia consultarMidia() {
         Scanner entrada = new Scanner(System.in);
@@ -125,6 +140,10 @@ public class MenuFilme implements IMenu {
         return filme;
     }
 
+    /**
+     * 
+     * @return cada etapa da um set nos campos preenchidos se for pressionado ENTER ele pula a etapa e vai para a proxima edicao
+     */
     @Override
     public boolean editarMidia() {
         Scanner e = new Scanner(System.in);
@@ -132,63 +151,63 @@ public class MenuFilme implements IMenu {
         System.out.println("\nDigite o codigo do filme que deseja excluir:");
         codigo = e.nextLine();
         Filme filme = (Filme) gerenciadorFilme.consulta(codigo);
-        System.out.println("Digite ENTER caso nao deseje editar este item.");
+        System.out.println("pressione ENTER caso nao deseje editar este item.");
         System.out.println("Novo titulo do filme: ");
         titulo = e.nextLine();
         if (titulo.equals("")) {
         } else {
             filme.setTitulo(titulo);
         }
-        System.out.println("Digite ENTER caso nao deseje editar este item.");
+        System.out.println("Pressione ENTER caso nao deseje editar este item.");
         System.out.println("Nova descricao do filme: ");
         desc = e.nextLine();
         if (desc.equals("")) {
         } else {
             filme.setDescricao(desc);
         }
-        System.out.println("Digite ENTER caso nao deseje editar este item.");
+        System.out.println("Pressione ENTER caso nao deseje editar este item.");
         System.out.println("Novo genero do filme: ");
         genero = e.nextLine();
         if (genero.equals("")) {
         } else {
             filme.setGenero(genero);
         }
-        System.out.println("Digite ENTER caso nao deseje editar este item.");
+        System.out.println("Pressione ENTER caso nao deseje editar este item.");
         System.out.println("Novo idioma do filme: ");
         idioma = e.nextLine();
         if (idioma.equals("")) {
         } else {
             filme.setIdioma(idioma);
         }
-        System.out.println("Digite ENTER caso nao deseje editar este item.");
+        System.out.println("Pressione ENTER caso nao deseje editar este item.");
         System.out.println("Novo nome do diretor do filme: ");
         diretor = e.nextLine();
         if (diretor.equals("")) {
         } else {
             filme.setDiretor(diretor);
         }
-        System.out.println("Digite ENTER caso nao deseje editar este item.");
+        System.out.println("Pressione ENTER caso nao deseje editar este item.");
         System.out.println("Novos nomes dos atores principais (separados por espaco)");
         atores = e.nextLine();
         if (atores.equals("")) {
         } else {
             filme.setAtores(atores);
         }
-        System.out.println("Digite ENTER caso nao deseje editar este item.");
+        System.out.println("Pressione ENTER caso nao deseje editar este item.");
         System.out.println("Novo ano de lancamento: ");
         ano = e.nextLine();
         if (ano.equals("")) {
         } else {
             filme.setAno(ano);
         }
-        System.out.println("Digite ENTER caso nao deseje editar este item.");
+        System.out.println("Pressione ENTER caso nao deseje editar este item.");
         System.out.println("Nova duracao do filme em minutos: ");
         duracao = e.nextLine();
         if (duracao.equals("")) {
         } else {
             filme.setDuracao(duracao);
         }
-        System.out.println("\nFilme editado com sucesso!!\n");
+        System.out.println("\nFilme editado com çç sucesso!!\n");
         return false;
     }
 

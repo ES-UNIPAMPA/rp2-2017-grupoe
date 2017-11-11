@@ -19,7 +19,9 @@ public class Principal {
             System.out.println("Digite a opção de mídia desejada:");
             opcao = entrada.nextInt();
             switch (opcao) {
-
+/**
+ * dependendo do caso, seleciona a midia e vai para o primeiro menu de interação referente a ela.
+ */
                 case 1:
                     MenuMusica musica = new MenuMusica();
                     musica.menuMusica();
@@ -44,6 +46,10 @@ public class Principal {
         } while (opcao != 0);
 
     }
+    /**
+     * 
+     * @param args main somente usado para chamar o metodo de menu principal.
+     */
     public static void main(String[] args) {
         Principal sb = new Principal();
         sb.Menu();
