@@ -16,6 +16,7 @@ public class Filme extends Midia {
     public Filme(String codigo, String caminho, String titulo, String descricao, String genero, String idioma, String diretor, String atores, String duracao, String ano) {
         super(codigo, caminho, titulo, descricao);
         this.genero = genero;
+        this.idioma = idioma;
         this.diretor = diretor;
         this.atores = atores;
         this.ano = ano;

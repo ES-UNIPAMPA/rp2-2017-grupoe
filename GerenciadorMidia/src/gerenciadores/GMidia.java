@@ -1,7 +1,6 @@
 package gerenciadores;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import midias.*;
 
 public class GMidia extends gerPrincipal {

@@ -2,11 +2,8 @@ package menus;
 
 import gerenciadores.GMidia;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Scanner;
-import midias.Filme;
-import midias.Midia;
+import java.util.*;
+import midias.*;
 
 /**
  *
@@ -106,8 +103,8 @@ public class MenuFilme implements IMenu {
         codigo = entrada.nextLine();
         System.out.println(gerenciadorFilme.consulta(codigo));
         System.out.println("\nTem certeza que deseja excluir esse filme?"
-                + "1- SIM"
-                + "2- NAO");
+                + "\n1- SIM"
+                + "\n2- NAO");
         int res = entrada.nextInt();
         switch (res) {
             case 1:
@@ -207,7 +204,7 @@ public class MenuFilme implements IMenu {
         } else {
             filme.setDuracao(duracao);
         }
-        System.out.println("\nFilme editado com çç sucesso!!\n");
+        System.out.println("\nFilme editado com sucesso!!\n");
         return false;
     }
 

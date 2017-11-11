@@ -3,11 +3,8 @@ package menus;
 
 import gerenciadores.GMidia;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Scanner;
-import midias.Midia;
-import midias.Musica;
+import java.util.*;
+import midias.*;
 
 /**
  *
@@ -143,7 +140,7 @@ public class MenuMusica implements IMenu {
     public boolean editarMidia() {
        Scanner e = new Scanner(System.in);
         String codigo, titulo, desc, genero, idioma, autores, interpretes, ano, duracao;
-        System.out.println("\nDigite o codigo do filme que deseja excluir:");
+        System.out.println("\nDigite o codigo do Música que deseja excluir:");
         codigo = e.nextLine();
         Musica musica = (Musica) gerenciadorMusica.consulta(codigo);
         System.out.println("Tecle ENTER caso não deseje editar este item.");
