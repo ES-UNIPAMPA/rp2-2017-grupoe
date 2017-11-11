@@ -98,16 +98,28 @@ public class MenuMusica implements IMenu {
     public boolean excluirMidia() {
         Scanner entrada = new Scanner(System.in);
         String excluir;
+        int resposta;
         System.out.println("Digite o codigo da Música que deseja excluir:");
         excluir = entrada.nextLine();
-        if (gerenciadorMusica.exclusao(excluir)) {
-            System.out.println("Música excluida com sucesso!");
-            return true;
-        } else {
-            System.out.println("Não foi possivel excluir a Música!");
-            return false;
-
+        System.out.println(gerenciadorMusica.consulta(excluir));
+        System.out.println("\nTem certeza que deseja excluir a Música?"
+                + "\n1- SIM"
+                + "\n2- NAO");
+        resposta = entrada.nextInt();
+        switch (resposta) {
+            case 1:
+                if (gerenciadorMusica.exclusao(excluir)) {
+                    System.out.println("\nMúsica excluida com sucesso!");
+                    return true;
+                } else {
+                    System.out.println("\nNão foi possivel excluir a Música!");
+                    return false;
+                }
+            case 2:
+                System.out.println("\n A música não foi excluida!");
+                return false;
         }
+        return false;
 
     }
 /**
