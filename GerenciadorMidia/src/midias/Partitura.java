@@ -2,24 +2,24 @@ package midias;
 
 public class Partitura extends Midia {
 
-    private String instrumentos;
+    public ColecaoDeCoisas instrumento;
     private String ano;
-    private String autores;
+    private ColecaoDeCoisas autores;
     private String genero;
 
-    public Partitura(String codigo, String caminho, String titulo, String descricao, String instrumentos, String ano, String autores, String genero) {
+    public Partitura(String codigo, String caminho, String titulo, String descricao, ColecaoDeCoisas instrumento, String ano, ColecaoDeCoisas autores, String genero) {
         super(codigo, caminho, titulo, descricao);
-        this.instrumentos = instrumentos;
+        this.instrumento = instrumento;
         this.ano = ano;
         this.autores = autores;
         this.genero = genero;
     }
 
-    public String getAutores() {
+    public ColecaoDeCoisas getAutores() {
         return autores;
     }
 
-    public void setAutores(String autores) {
+    public void setAutores(ColecaoDeCoisas autores) {
         this.autores = autores;
     }
 
@@ -31,12 +31,12 @@ public class Partitura extends Midia {
         this.genero = genero;
     }
 
-    public String getInstrumentos() {
-        return instrumentos;
+    public ColecaoDeCoisas getInstrumentos() {
+        return instrumento;
     }
 
-    public void setInstrumentos(String instrumentos) {
-        this.instrumentos = instrumentos;
+    public void setInstrumentos(ColecaoDeCoisas instrumento) {
+        this.instrumento = instrumento;
     }
 
     public String getAno() {
@@ -60,7 +60,7 @@ public class Partitura extends Midia {
                 + "Autor da Partitura: %s \n"
                 + "Ano de Crição da Partitura: %s \n"
                 + "Gênero da Partitura: %s \n ", 
-                titulo, descricao, instrumentos, autores, ano, genero);
+                titulo, descricao, instrumento, autores, ano, genero);
     }
 
 }
