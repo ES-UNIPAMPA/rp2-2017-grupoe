@@ -2,7 +2,7 @@
 package gerenciadores;
 
 import java.util.*;
-import midias.Midia;
+import midias.*;
 
 /**
  * Classe abstrata com o métodos para os gerenciadores.

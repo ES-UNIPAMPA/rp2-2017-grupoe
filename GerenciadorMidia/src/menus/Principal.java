@@ -4,7 +4,9 @@ import java.util.Scanner;
 
 public class Principal {
 
-    MenuMusica menuMusica = new MenuMusica();
+    MenuMusica musica = new MenuMusica();
+    MenuFilme menuFilme = new MenuFilme();
+    MenuPartitura menuPartitura = new MenuPartitura();
 
     public void Menu() {
         int opcao;
@@ -19,17 +21,17 @@ public class Principal {
             System.out.println("Digite a opção de mídia desejada:");
             opcao = entrada.nextInt();
             switch (opcao) {
-
+                /**
+                 * dependendo do caso, seleciona a midia e vai para o primeiro
+                 * menu de interação referente a ela.
+                 */
                 case 1:
-                    MenuMusica musica = new MenuMusica();
                     musica.menuMusica();
                     break;
                 case 2:
-                    MenuFilme menuFilme = new MenuFilme();
                     menuFilme.filme();
                     break;
                 case 3:
-                    MenuPartitura menuPartitura = new MenuPartitura();
                     menuPartitura.partitura();
                     break;
                 case 0:
@@ -44,6 +46,11 @@ public class Principal {
         } while (opcao != 0);
 
     }
+
+    /**
+     *
+     * @param args main somente usado para chamar o metodo de menu principal.
+     */
     public static void main(String[] args) {
         Principal sb = new Principal();
         sb.Menu();

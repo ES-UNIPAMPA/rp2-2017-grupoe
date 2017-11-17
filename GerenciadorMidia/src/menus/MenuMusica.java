@@ -3,11 +3,8 @@ package menus;
 
 import gerenciadores.GMidia;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Scanner;
-import midias.Midia;
-import midias.Musica;
+import java.util.*;
+import midias.*;
 
 /**
  *
@@ -98,16 +95,28 @@ public class MenuMusica implements IMenu {
     public boolean excluirMidia() {
         Scanner entrada = new Scanner(System.in);
         String excluir;
+        int resposta;
         System.out.println("Digite o codigo da Música que deseja excluir:");
         excluir = entrada.nextLine();
-        if (gerenciadorMusica.exclusao(excluir)) {
-            System.out.println("Música excluida com sucesso!");
-            return true;
-        } else {
-            System.out.println("Não foi possivel excluir a Música!");
-            return false;
-
+        System.out.println(gerenciadorMusica.consulta(excluir));
+        System.out.println("\nTem certeza que deseja excluir a Música?"
+                + "\n1- SIM"
+                + "\n2- NAO");
+        resposta = entrada.nextInt();
+        switch (resposta) {
+            case 1:
+                if (gerenciadorMusica.exclusao(excluir)) {
+                    System.out.println("\nMúsica excluida com sucesso!");
+                    return true;
+                } else {
+                    System.out.println("\nNão foi possivel excluir a Música!");
+                    return false;
+                }
+            case 2:
+                System.out.println("\n A música não foi excluida!");
+                return false;
         }
+        return false;
 
     }
 /**
@@ -118,7 +127,7 @@ public class MenuMusica implements IMenu {
     public Midia consultarMidia() {
         Scanner entrada = new Scanner(System.in);
         String consulta;
-        System.out.println("Digite o codigo da música que desejas consultar:");
+        System.out.println("Digite o codigo da Música que desejas consultar:");
         consulta = entrada.nextLine();
         Musica musica = (Musica) gerenciadorMusica.consulta(consulta);
         return musica;
@@ -131,59 +140,59 @@ public class MenuMusica implements IMenu {
     public boolean editarMidia() {
        Scanner e = new Scanner(System.in);
         String codigo, titulo, desc, genero, idioma, autores, interpretes, ano, duracao;
-        System.out.println("\nDigite o codigo do filme que deseja excluir:");
+        System.out.println("\nDigite o codigo do Música que deseja excluir:");
         codigo = e.nextLine();
         Musica musica = (Musica) gerenciadorMusica.consulta(codigo);
-        System.out.println("Tecle ENTER caso nao deseje editar este item.");
+        System.out.println("Tecle ENTER caso não deseje editar este item.");
         System.out.println("Novo titulo da Música: ");
         titulo = e.nextLine();
         if (titulo.equals("")) {
         } else {
             musica.setTitulo(titulo);
         }
-        System.out.println("Tecle ENTER caso nao deseje editar este item.");
+        System.out.println("Tecle ENTER caso não deseje editar este item.");
         System.out.println("Nova descrição da Música: ");
         desc = e.nextLine();
         if (desc.equals("")) {
         } else {
             musica.setDescricao(desc);
         }
-        System.out.println("Tecle ENTER caso nao deseje editar este item.");
+        System.out.println("Tecle ENTER caso não deseje editar este item.");
         System.out.println("Novo genero da Música: ");
         genero = e.nextLine();
         if (genero.equals("")) {
         } else {
             musica.setGenero(genero);
         }
-        System.out.println("Tecle ENTER caso nao deseje editar este item.");
+        System.out.println("Tecle ENTER caso não deseje editar este item.");
         System.out.println("Novo idioma da Música: ");
         idioma = e.nextLine();
         if (idioma.equals("")) {
         } else {
             musica.setIdioma(idioma);
         }
-        System.out.println("Tecle ENTER caso nao deseje editar este item.");
+        System.out.println("Tecle ENTER caso não deseje editar este item.");
         System.out.println("Novo nome dos autores da Música:");
         autores = e.nextLine();
         if (autores.equals("")) {
         } else {
             musica.setAutores(autores);
         }
-        System.out.println("Tecle ENTER caso nao deseje editar este item.");
+        System.out.println("Tecle ENTER caso não deseje editar este item.");
         System.out.println("Novos nomes dos interpretes:");
         interpretes = e.nextLine();
         if (interpretes.equals("")) {
         } else {
             musica.setInterprete(interpretes);
         }
-        System.out.println("Tecle ENTER caso nao deseje editar este item.");
+        System.out.println("Tecle ENTER caso não deseje editar este item.");
         System.out.println("Novo ano de lançamento: ");
         ano = e.nextLine();
         if (ano.equals("")) {
         } else {
             musica.setAno(ano);
         }
-        System.out.println("Tecle ENTER caso nao deseje editar este item.");
+        System.out.println("Tecle ENTER caso não deseje editar este item.");
         System.out.println("Nova duração do filme em minutos: ");
         duracao = e.nextLine();
         if (duracao.equals("")) {

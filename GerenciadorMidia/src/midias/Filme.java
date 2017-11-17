@@ -1,5 +1,9 @@
 package midias;
 
+/**
+ *
+ * @author Rafael
+ */
 public class Filme extends Midia {
 
     private String genero;
@@ -12,6 +16,7 @@ public class Filme extends Midia {
     public Filme(String codigo, String caminho, String titulo, String descricao, String genero, String idioma, String diretor, String atores, String duracao, String ano) {
         super(codigo, caminho, titulo, descricao);
         this.genero = genero;
+        this.idioma = idioma;
         this.diretor = diretor;
         this.atores = atores;
         this.ano = ano;
@@ -109,7 +114,11 @@ public class Filme extends Midia {
     }
 
 
-
+    /**
+     * Método toString para representar organizado os dados
+     *
+     * @return retorna uma String com todas as informações em ordem
+     */
     //TO STRING
     @Override
     public String toString() {

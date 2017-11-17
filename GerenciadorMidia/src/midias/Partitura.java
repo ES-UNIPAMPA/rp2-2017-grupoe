@@ -54,13 +54,14 @@ public class Partitura extends Midia {
      */
     @Override
     public String toString() {
-        return String.format("Titulo da partitura: %s \n"
+        return String.format("Caminho: %s \n"
+                + "Titulo da partitura: %s \n"
                 + "Descrição da Partitura: %s \n"
                 + "Instrumento (os): %s \n"
                 + "Autor da Partitura: %s \n"
                 + "Ano de Crição da Partitura: %s \n"
-                + "Gênero da Partitura: %s \n ", 
-                titulo, descricao, instrumento, autores, ano, genero);
+                + "Gênero da Partitura: %s \n ",
+                caminho, titulo, descricao, instrumento, autores, ano, genero);
     }
 
 }
