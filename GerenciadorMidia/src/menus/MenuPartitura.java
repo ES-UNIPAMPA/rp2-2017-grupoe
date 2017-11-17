@@ -49,24 +49,41 @@ public class MenuPartitura implements IMenu {
     public boolean adicionarMidia() {
         Random gerador = new Random();
         Scanner entrada = new Scanner(System.in);
-        String codigo, caminho, titulo, descricao, instrumentos, ano, autores, genero;
+        char ola;
+        char tchau;
+        ola = 's';
+        tchau = 's';
+        String codigo, caminho, titulo, descricao, ano, genero, toc, tic;
+        ColecaoDeCoisas autores = new ColecaoDeCoisas();
+        ColecaoDeCoisas instrumento = new ColecaoDeCoisas();
         System.out.println("\nDigite o título da Partitura:");
         titulo = entrada.nextLine();
         System.out.println("Digite o genero da Partitura:");
         genero = entrada.nextLine();
         System.out.println("Digite a descrição da Partitura:");
         descricao = entrada.nextLine();
-        System.out.println("Digite o (os) instrumento (os) da Partitura:");
-        instrumentos = entrada.nextLine();
         System.out.println("Digite o ano da Partitura:");
         ano = entrada.nextLine();
+        System.out.println("Digite o (os) instrumento (os) da Partitura:");
+        //Não estou conseguindo inserir mais de um elemento
+        while (ola == 's'){
+            toc = entrada.nextLine();
+            instrumento.addColecaoDeCoisas(toc);
+            System.out.println("Caso queira adicionar mais instrumentos, digite 's'");
+            ola = entrada.next().charAt(0);
+        } 
         System.out.println("Digite o Autor da Partitura:");
-        autores = entrada.nextLine();
+        do {
+            tic = entrada.nextLine();
+            autores.addColecaoDeCoisas(tic);
+            System.out.println("Caso queira adicionar mais autores, digite 's'");
+            tchau = entrada.next().charAt(0);
+        } while (tchau == 's');
         int codigoNumero = gerador.nextInt(1000);
         codigo = "" + codigoNumero;
         System.out.println("Codigo da sua Partitura: " + codigo);
         caminho = new java.io.File(".").getAbsolutePath();
-        Partitura partitura = new Partitura(codigo, caminho, titulo, descricao, instrumentos, ano, autores, genero);
+        Partitura partitura = new Partitura(codigo, caminho, titulo, descricao, instrumento, ano, autores, genero);
         if (gerenciadorPartitura.adicionar(partitura)) {
             System.out.println("\nPartitura adicionada com sucesso! =D");
             return true;
@@ -114,7 +131,9 @@ public class MenuPartitura implements IMenu {
     @Override
     public boolean editarMidia() {
         Scanner e = new Scanner(System.in);
-        String codigo, caminho, titulo, descricao, instrumentos, ano, autores, genero;
+        String codigo, caminho, titulo, descricao, ano, genero;
+        ColecaoDeCoisas instrumentos = new ColecaoDeCoisas();
+        ColecaoDeCoisas autores = new ColecaoDeCoisas();
         System.out.println("\nDigite o codigo da Partitura que deseja Editar:");
         codigo = e.nextLine();
         Partitura partitura = (Partitura) gerenciadorPartitura.consulta(codigo);
@@ -141,17 +160,23 @@ public class MenuPartitura implements IMenu {
         }
         System.out.println("Digite ENTER caso nao deseje editar este item.");
         System.out.println("Novo instrumento da Partitura: ");
-        instrumentos = e.nextLine();
-        if (instrumentos.equals("")) {
-        } else {
-            partitura.setInstrumentos(instrumentos);
+        for (int i = 0; i < partitura.instrumento.getNroColecaoDeCoisas(); i++) {
+            String toc = e.nextLine();
+            instrumentos.addColecaoDeCoisas(toc);
+            if (toc.equals("")) {
+            } else {
+                partitura.setInstrumentos(instrumentos);
+            }
         }
         System.out.println("Digite ENTER caso nao deseje editar este item.");
         System.out.println("Novo nome do autor da Partitura: ");
-        autores = e.nextLine();
-        if (autores.equals("")) {
-        } else {
-            partitura.setAutores(autores);
+        for (int i = 0; i < partitura.instrumento.getNroColecaoDeCoisas(); i++) {
+            String tic = e.nextLine();
+            autores.addColecaoDeCoisas(tic);
+            if (tic.equals("")) {
+            } else {
+                partitura.setAutores(autores);
+            }
         }
         System.out.println("Digite ENTER caso nao deseje editar este item.");
         System.out.println("Novo ano da Partitura: ");
