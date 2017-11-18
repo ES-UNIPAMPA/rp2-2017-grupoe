@@ -1,5 +1,9 @@
 package midias;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  *
  * @author Rafael
@@ -12,6 +16,8 @@ public class Filme extends Midia {
     private String atores;
     private String ano;
     private String duracao;
+    public static List<String> menu = new ArrayList(Arrays.asList("Digite o genero do filme: ", "Digite o nome do diretor do filme: ","Digite o nome dos atores principais: (separados por espaço): ", "Digite a duração do filme: "));
+    public static List<String> variaveis = new ArrayList();
 
     public Filme(String codigo, String caminho, String titulo, String descricao, String genero, String idioma, String diretor, String atores, String duracao, String ano) {
         super(codigo, caminho, titulo, descricao);
@@ -20,7 +26,7 @@ public class Filme extends Midia {
         this.diretor = diretor;
         this.atores = atores;
         this.ano = ano;
-        this.duracao = ano;
+        this.duracao = ano;       
     }
 
     /**

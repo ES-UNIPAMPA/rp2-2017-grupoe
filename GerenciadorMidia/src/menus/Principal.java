@@ -7,6 +7,7 @@ public class Principal {
     MenuMusica musica = new MenuMusica();
     MenuFilme menuFilme = new MenuFilme();
     MenuPartitura menuPartitura = new MenuPartitura();
+    MenuMidias menuMidias = new MenuMidias();
 
     public void Menu() {
         int opcao;
@@ -17,6 +18,7 @@ public class Principal {
             System.out.println("1- Música");
             System.out.println("2- Filme");
             System.out.println("3- Partituras");
+            System.out.println("4- Teste");
             System.out.println("0- Sair");
             System.out.println("Digite a opção de mídia desejada:");
             opcao = entrada.nextInt();
@@ -34,6 +36,8 @@ public class Principal {
                 case 3:
                     menuPartitura.partitura();
                     break;
+                case 4:
+                    menuMidias.menu("filme");
                 case 0:
                     System.out.println("Até logo!");
                     break;
