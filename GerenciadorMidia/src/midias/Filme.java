@@ -120,7 +120,7 @@ public class Filme extends Midia {
                 + "Genero: %s \n"
                 + "Idioma: %s \n"
                 + "Diretor:  %s \n"
-                + "Ano: %s \n "
+                + "Ano: %s \n"
                 + "Duração: %s \n"
                 + "Atores: %s \n",
                 caminho, titulo, descricao, genero, idioma, diretor, ano, duracao, atores);

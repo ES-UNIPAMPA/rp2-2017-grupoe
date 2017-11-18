@@ -55,9 +55,11 @@ public class MenuMidias {
 
     public boolean adicionarMidia(String tipo) {
         Random gerador = new Random();
+        int codigoNumero = gerador.nextInt(1000); 
         Scanner entrada = new Scanner(System.in);
         List<String> variaveis = new ArrayList();
         String caminho, titulo, descricao, idioma, ano, codigo;
+        codigo = "" + codigoNumero;
         System.out.println("\nDigite o título:");
         titulo = entrada.nextLine();
         System.out.println("Digite o idioma: ");
@@ -80,20 +82,12 @@ public class MenuMidias {
                 System.out.println(Filme.menu.get(i));
                 String respo = entrada.next();
                 variaveis.add(i, respo);
-            }
-            int codigoNumero = gerador.nextInt(1000);
-            codigo = "" + codigoNumero;
+            }           
             System.out.println("Codigo do seu filme: " + codigo);
             caminho = new java.io.File(".").getAbsolutePath() + titulo;
-            String genero = variaveis.get(0);
-            String diretor = variaveis.get(1);
-            String duracao = variaveis.get(2);
             Filme filme = new Filme(codigo, caminho, titulo, descricao, variaveis.get(0), idioma, variaveis.get(1), atores, variaveis.get(2), ano);
             System.out.println(filme.toString());
-            if (gerenciadorMidia.adicionar(filme)) {
-                System.out.println("\nFilme adicionado com sucesso!");
-                return false;
-            }
+            gerenciadorMidia.adicionar(filme);                       
         }
         if (tipo.equalsIgnoreCase("musica")) {
             for (int i = 0; i < Filme.menu.size(); i++) {
@@ -105,12 +99,7 @@ public class MenuMidias {
 
             }
         }
-        int codigoNumero = gerador.nextInt(1000);
-        codigo = "" + codigoNumero;
-        System.out.println("Codigo do seu filme: " + codigo);
-        caminho = new java.io.File(".").getAbsolutePath();
-        //Filme filme = new Filme(codigo, caminho, titulo, descricao, genero, idioma, diretor, atores, duracao, ano);
-        System.out.println("\nMidia adicionado com sucesso!");
+        System.out.println("\nMidia adicionada com sucesso!");
         return true;
     }
 }
