@@ -13,13 +13,13 @@ public class Filme extends Midia {
     private String genero;
     private String idioma;
     private String diretor;
-    private String atores;
     private String ano;
     private String duracao;
-    public static List<String> menu = new ArrayList(Arrays.asList("Digite o genero do filme: ", "Digite o nome do diretor do filme: ","Digite o nome dos atores principais: (separados por espaço): ", "Digite a duração do filme: "));
+    private List<String> atores;
+    public static List<String> menu = new ArrayList(Arrays.asList("Digite o genero do filme: ", "Digite o nome do diretor do filme: ", "Digite a duração do filme: "));
     public static List<String> variaveis = new ArrayList();
 
-    public Filme(String codigo, String caminho, String titulo, String descricao, String genero, String idioma, String diretor, String atores, String duracao, String ano) {
+    public Filme(String codigo, String caminho, String titulo, String descricao, String genero, String idioma, String diretor, List atores, String duracao, String ano) {
         super(codigo, caminho, titulo, descricao);
         this.genero = genero;
         this.idioma = idioma;
@@ -69,21 +69,6 @@ public class Filme extends Midia {
     public void setDiretor(String diretor) {
         this.diretor = diretor;
     }
-
-    /**
-     * @return the atores
-     */
-    public String getAtores() {
-        return atores;
-    }
-
-    /**
-     * @param atores the atores to set
-     */
-    public void setAtores(String atores) {
-        this.atores = atores;
-    }
-
     /**
      * @return the ano
      */
@@ -126,10 +111,22 @@ public class Filme extends Midia {
      * @return retorna uma String com todas as informações em ordem
      */
     //TO STRING
-    @Override
-    public String toString() {
-        return "\nCodigo: " + codigo + " \nCaminho: " + caminho + " \nTitulo: " + titulo + " \nDescricao: " + descricao + " \nGenero:  " + getGenero() + " \nIdioma: " + idioma + " \nDiretor: " + diretor + " \nAtores: " + atores + " \nAno: " + ano + " \nDuracao: " + duracao + "\n";
+   
+   @Override
+     public String toString() {
+        return String.format("Caminho: %s \n"
+                + "Titulo : %s \n"
+                + "Descrição d: %s \n"
+                + "Genero: %s \n"
+                + "Idioma: %s \n"
+                + "Diretor:  %s \n"
+                + "Ano: %s \n "
+                + "Duração: %s \n"
+                + "Atores: %s \n",
+                caminho, titulo, descricao, genero, idioma, diretor, ano, duracao, atores);
     }
+
+    
     /**
      * @return the genero
      */

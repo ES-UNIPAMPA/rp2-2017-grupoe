@@ -67,20 +67,28 @@ public class MenuMidias {
         System.out.println("Digite a descricao: ");
         descricao = entrada.nextLine();
         if (tipo.equalsIgnoreCase("filme")) {
+            ArrayList atores = new ArrayList();
+            int resp;
+            do {
+                System.out.println("Digite do Autor principal: ");
+                String resposta = entrada.next();
+                atores.add(resposta);
+                System.out.println("1- Adicionar outro Ator  2- Prosseguir");
+                resp = entrada.nextInt();
+            } while (resp != 2);
             for (int i = 0; i < Filme.menu.size(); i++) {
                 System.out.println(Filme.menu.get(i));
-                String resposta = entrada.next();
-                variaveis.add(i, resposta);
+                String respo = entrada.next();
+                variaveis.add(i, respo);
             }
             int codigoNumero = gerador.nextInt(1000);
             codigo = "" + codigoNumero;
             System.out.println("Codigo do seu filme: " + codigo);
-            caminho = new java.io.File(".").getAbsolutePath()+titulo;
+            caminho = new java.io.File(".").getAbsolutePath() + titulo;
             String genero = variaveis.get(0);
             String diretor = variaveis.get(1);
-            String atores = variaveis.get(2);
-            String duracao = variaveis.get(3);
-            Filme filme = new Filme(codigo, caminho, titulo, descricao, variaveis.get(0), idioma, variaveis.get(1), variaveis.get(2), variaveis.get(3), ano);
+            String duracao = variaveis.get(2);
+            Filme filme = new Filme(codigo, caminho, titulo, descricao, variaveis.get(0), idioma, variaveis.get(1), atores, variaveis.get(2), ano);
             System.out.println(filme.toString());
             if (gerenciadorMidia.adicionar(filme)) {
                 System.out.println("\nFilme adicionado com sucesso!");

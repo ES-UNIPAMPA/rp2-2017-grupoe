@@ -1,11 +1,18 @@
 package midias;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Partitura extends Midia {
 
     public ColecaoDeCoisas instrumento;
     private String ano;
     private ColecaoDeCoisas autores;
     private String genero;
+    public static List<String> menu = new ArrayList(Arrays.asList("Digite um instrumento: ", "Digite o nome do diretor do filme: ", "Digite a duração do filme: "));
+    public static List<String> variaveis = new ArrayList();
+
 
     public Partitura(String codigo, String caminho, String titulo, String descricao, ColecaoDeCoisas instrumento, String ano, ColecaoDeCoisas autores, String genero) {
         super(codigo, caminho, titulo, descricao);
