@@ -19,24 +19,17 @@ public class Filme extends Midia {
     public static List<String> menu = new ArrayList(Arrays.asList("Digite o genero do filme: ", "Digite o nome do diretor do filme: ", "Digite a duração do filme: "));
     public static List<String> variaveis = new ArrayList();
 
-    public Filme(String codigo, String caminho, String titulo, String descricao, String genero, String idioma, String diretor, List atores, String duracao, String ano) {
-        super(codigo, caminho, titulo, descricao);
+    public Filme( String caminho, String titulo, String descricao, String genero, String idioma, String diretor, List atores, String duracao, String ano) {
+        super( caminho, titulo, descricao);
         this.genero = genero;
         this.idioma = idioma;
         this.diretor = diretor;
         this.atores = atores;
         this.ano = ano;
-        this.duracao = ano;       
+        this.duracao = duracao;       
     }
 
-    /**
-     * @return the aumentaCodigo
-     */
-    @Override
-    public String getCodigo() {
-        return codigo;
-    }
-
+   
     /**
      * @return the idioma
      */
@@ -51,10 +44,7 @@ public class Filme extends Midia {
         this.idioma = idioma;
     }
 
-    @Override
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
+  
 
     /**
      * @return the diretor

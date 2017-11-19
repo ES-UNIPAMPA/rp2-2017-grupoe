@@ -51,27 +51,28 @@ public class MenuPartitura implements IMenu {
         Scanner entrada = new Scanner(System.in);
         char ola;
         char tchau;
+        int ano1 = Integer.MIN_VALUE;
         ola = 's';
         tchau = 's';
-        String codigo, caminho, titulo, descricao, ano, genero, toc, tic;
+        String codigo, caminho, titulo = null, descricao = null, ano = null, genero = null, toc, tic;
         ColecaoDeCoisas autores = new ColecaoDeCoisas();
         ColecaoDeCoisas instrumento = new ColecaoDeCoisas();
         System.out.println("\nDigite o título da Partitura:");
-        titulo = entrada.nextLine();
+        titulo = ValidarEntradaUsuario.nextLine(titulo);
         System.out.println("Digite o genero da Partitura:");
-        genero = entrada.nextLine();
+        genero = ValidarEntradaUsuario.nextLine(genero);
         System.out.println("Digite a descrição da Partitura:");
-        descricao = entrada.nextLine();
+        descricao = ValidarEntradaUsuario.nextLine(descricao);
         System.out.println("Digite o ano da Partitura:");
-        ano = entrada.nextLine();
+        ano = ValidarEntradaUsuario.nextInt(ano);
         System.out.println("Digite o (os) instrumento (os) da Partitura:");
         //Não estou conseguindo inserir mais de um elemento
-        while (ola == 's'){
+        while (ola == 's') {
             toc = entrada.nextLine();
             instrumento.addColecaoDeCoisas(toc);
             System.out.println("Caso queira adicionar mais instrumentos, digite 's'");
             ola = entrada.next().charAt(0);
-        } 
+        }
         System.out.println("Digite o Autor da Partitura:");
         do {
             tic = entrada.nextLine();
@@ -79,11 +80,9 @@ public class MenuPartitura implements IMenu {
             System.out.println("Caso queira adicionar mais autores, digite 's'");
             tchau = entrada.next().charAt(0);
         } while (tchau == 's');
-        int codigoNumero = gerador.nextInt(1000);
-        codigo = "" + codigoNumero;
-        System.out.println("Codigo da sua Partitura: " + codigo);
+
         caminho = new java.io.File(".").getAbsolutePath();
-        Partitura partitura = new Partitura(codigo, caminho, titulo, descricao, instrumento, ano, autores, genero);
+        Partitura partitura = new Partitura(caminho, titulo, descricao, instrumento, ano, autores, genero);
         if (gerenciadorPartitura.adicionar(partitura)) {
             System.out.println("\nPartitura adicionada com sucesso! =D");
             return true;
@@ -94,17 +93,17 @@ public class MenuPartitura implements IMenu {
     @Override
     public boolean excluirMidia() {
         Scanner entrada = new Scanner(System.in);
-        String codigo;
-        System.out.println("\nDigite o codigo da Partitura que deseja excluir:");
-        codigo = entrada.nextLine();
-        System.out.println(gerenciadorPartitura.consulta(codigo));
+        String titulo = null;
+        System.out.println("\nDigite o titulo da Partitura que deseja excluir:");
+        titulo = ValidarEntradaUsuario.nextLine(titulo);
+        System.out.println(gerenciadorPartitura.consulta(titulo));
         System.out.println("\nTem certeza que deseja excluir essa Partitura?"
                 + "\n1 - SIM"
                 + "\n2 - NÃO");
         int res = entrada.nextInt();
         switch (res) {
             case 1:
-                if (gerenciadorPartitura.exclusao(codigo)) {
+                if (gerenciadorPartitura.exclusao(titulo)) {
                     System.out.println("\nPartitura excluida com sucesso!");
                     return true;
                 } else {
@@ -121,9 +120,9 @@ public class MenuPartitura implements IMenu {
     @Override
     public Midia consultarMidia() {
         Scanner entrada = new Scanner(System.in);
-        String consulta;
-        System.out.println("\nDigite o codigo da Partitura que deseja consultar:");
-        consulta = entrada.nextLine();
+        String consulta = null;
+        System.out.println("\nDigite o titulo da Partitura que deseja consultar:");
+        consulta = ValidarEntradaUsuario.nextLine(consulta);
         Partitura partitura = (Partitura) gerenciadorPartitura.consulta(consulta);
         return partitura;
     }
@@ -131,15 +130,15 @@ public class MenuPartitura implements IMenu {
     @Override
     public boolean editarMidia() {
         Scanner e = new Scanner(System.in);
-        String codigo, caminho, titulo, descricao, ano, genero;
+        String caminho, titulo, descricao, ano, genero, novoTitulo = null;
         ColecaoDeCoisas instrumentos = new ColecaoDeCoisas();
         ColecaoDeCoisas autores = new ColecaoDeCoisas();
-        System.out.println("\nDigite o codigo da Partitura que deseja Editar:");
-        codigo = e.nextLine();
-        Partitura partitura = (Partitura) gerenciadorPartitura.consulta(codigo);
+        System.out.println("\nDigite o titulo da Partitura que deseja Editar:");
+        titulo = e.nextLine();
+        Partitura partitura = (Partitura) gerenciadorPartitura.consulta(titulo);
         System.out.println("Digite ENTER caso nao deseje editar este item.");
         System.out.println("Novo titulo da Partitura: ");
-        titulo = e.nextLine();
+        novoTitulo = e.nextLine();
         if (titulo.equals("")) {
         } else {
             partitura.setTitulo(titulo);

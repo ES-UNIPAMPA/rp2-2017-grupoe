@@ -15,9 +15,7 @@ public class GMidia extends gerPrincipal {
 
     }
 
-    public GMidia() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+  
 
     /**
      * Método para adicionar uma midia
@@ -34,14 +32,14 @@ public class GMidia extends gerPrincipal {
     /**
      * Método para consultar uma midia
      *
-     * @param codigo para efetuar a busca de midia desejada
+     * @param titulo
      * @return retorna a mdia desejada caso o codigo exista. Caso contrário
      * retorna null
      */
     @Override
-    public Midia consulta(String codigo) {
+    public Midia consulta(String titulo) {
         for (int i = 0; i < listMidia.size(); i++) {
-            if (listMidia.get(i).getCodigo().equalsIgnoreCase(codigo)) {
+            if (listMidia.get(i).equalsTitulo(titulo)) {
                 return listMidia.get(i);
             }
         }
@@ -59,7 +57,7 @@ public class GMidia extends gerPrincipal {
     @Override
     public Midia exibir(String nome) {
         for (int i = 0; i < listMidia.size(); i++) {
-            if (listMidia.get(i).getTitulo().equalsIgnoreCase(nome)) {
+            if (listMidia.get(i).equalsTitulo(nome)) {
                 return listMidia.get(i);
             }
         }
@@ -69,15 +67,15 @@ public class GMidia extends gerPrincipal {
     /**
      * Método para editar uma midia
      *
-     * @param codigo para encontrar a midia desejada
+     * @param titulo
      * @param novaMidia é recebido para editar a midia existente
      * @return Caso a edição seja realizado com sucesso, retornara true. Caso
      * contrário retornara false
      */
     @Override
-    public boolean edicao(String codigo, Midia novaMidia) {
+    public boolean edicao(String titulo, Midia novaMidia) {
         for (int i = 0; i < listMidia.size(); i++) {
-            if (listMidia.get(i).getCodigo().equalsIgnoreCase(codigo)) {
+            if (listMidia.get(i).equalsTitulo(titulo)) {
                 listMidia.add(i, novaMidia);
                 return true;
             }
@@ -88,14 +86,14 @@ public class GMidia extends gerPrincipal {
     /**
      * Método para excluir uma midia
      *
-     * @param codigo para encontrar a midia desejada
+     * @param titulo é recebido para identificar a midia que ira ser excluida.
      * @return Vai retornar verdadeiro caso a remoção seja realizada com
      * sucesso. Caso contrário retornara false
      */
     @Override
-    public boolean exclusao(String codigo) {
+    public boolean exclusao(String titulo) {
         for (int i = 0; i < listMidia.size(); i++) {
-            if (listMidia.get(i).getCodigo().equalsIgnoreCase(codigo)) {
+            if (listMidia.get(i).equalsTitulo(titulo)) {
                 listMidia.remove(i);
                 return true;
             }

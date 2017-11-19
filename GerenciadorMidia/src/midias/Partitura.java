@@ -14,8 +14,8 @@ public class Partitura extends Midia {
     public static List<String> variaveis = new ArrayList();
 
 
-    public Partitura(String codigo, String caminho, String titulo, String descricao, ColecaoDeCoisas instrumento, String ano, ColecaoDeCoisas autores, String genero) {
-        super(codigo, caminho, titulo, descricao);
+    public Partitura( String caminho, String titulo, String descricao, ColecaoDeCoisas instrumento, String ano, ColecaoDeCoisas autores, String genero) {
+        super( caminho, titulo, descricao);
         this.instrumento = instrumento;
         this.ano = ano;
         this.autores = autores;

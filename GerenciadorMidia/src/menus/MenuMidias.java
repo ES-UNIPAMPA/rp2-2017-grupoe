@@ -88,7 +88,7 @@ public class MenuMidias {
             String genero = variaveis.get(0);
             String diretor = variaveis.get(1);
             String duracao = variaveis.get(2);
-            Filme filme = new Filme(codigo, caminho, titulo, descricao, variaveis.get(0), idioma, variaveis.get(1), atores, variaveis.get(2), ano);
+            Filme filme = new Filme( caminho, titulo, descricao, variaveis.get(0), idioma, variaveis.get(1), atores, variaveis.get(2), ano);
             System.out.println(filme.toString());
             if (gerenciadorMidia.adicionar(filme)) {
                 System.out.println("\nFilme adicionado com sucesso!");

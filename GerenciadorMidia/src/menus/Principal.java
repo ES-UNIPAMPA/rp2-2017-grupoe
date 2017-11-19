@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Principal {
 
     MenuMusica musica = new MenuMusica();
-    MenuFilme menuFilme = new MenuFilme();
+    //MenuFilme menuFilme = new MenuFilme();
     MenuPartitura menuPartitura = new MenuPartitura();
     MenuMidias menuMidias = new MenuMidias();
 
@@ -31,7 +31,7 @@ public class Principal {
                     musica.menuMusica();
                     break;
                 case 2:
-                    menuFilme.filme();
+                   // menuFilme.filme();
                     break;
                 case 3:
                     menuPartitura.partitura();
