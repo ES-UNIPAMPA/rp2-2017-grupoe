@@ -10,24 +10,8 @@ import java.util.List;
  */
 public class Filme extends Midia {
 
-    /**
-     * @return the atores
-     */
-    public List<String> getAtores() {
-        return atores;
-    }
-
-    /**
-     * @param atores the atores to set
-     */
-    public void setAtores(List<String> atores) {
-        this.atores = atores;
-    }
-
-    private String genero;
     private String idioma;
     private String diretor;
-    private String ano;
     private String duracao;
     private List<String> atores;
     public static List<String> menu = new ArrayList(Arrays.asList("Digite o idioma:", "Digite o nome do diretor: ", "Digite a duração: "));
@@ -71,19 +55,7 @@ public class Filme extends Midia {
     public void setDiretor(String diretor) {
         this.diretor = diretor;
     }
-    /**
-     * @return the ano
-     */
-    public String getAno() {
-        return ano;
-    }
-
-    /**
-     * @param ano the ano to set
-     */
-    public void setAno(String ano) {
-        this.ano = ano;
-    }
+ 
 
     /**
      * @return the duracao
@@ -99,11 +71,19 @@ public class Filme extends Midia {
         this.duracao = duracao;
     }
     
-    /**
-     * @param genero the genero to set
+ 
+      /**
+     * @return the atores
      */
-    public void setGenero(String genero) {
-        this.genero = genero;
+    public List<String> getAtores() {
+        return atores;
+    }
+
+    /**
+     * @param atores the atores to set
+     */
+    public void setAtores(List<String> atores) {
+        this.atores = atores;
     }
 
 

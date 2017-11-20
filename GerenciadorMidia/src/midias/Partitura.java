@@ -6,7 +6,19 @@ import java.util.List;
 
 public class Partitura extends Midia {
 
-    /**
+    private List<String> instrumentos;
+    private List<String> autores;
+    //public static List<String> menu = new ArrayList(Arrays.asList("Digite um instrumento: ", "Digite o nome do diretor do filme: ", "Digite a duração do filme: "));
+    //public static List<String> variaveis = new ArrayList();
+
+
+    public Partitura( String codigo, String caminho, String titulo, String descricao, List instrumentos, String ano, List autores, String genero) {
+        super( codigo, caminho, titulo, descricao, genero, ano);
+        this.instrumentos = instrumentos;
+        this.autores = autores;
+    }
+
+        /**
      * @return the instrumentos
      */
     public List<String> getInstrumentos() {
@@ -32,36 +44,6 @@ public class Partitura extends Midia {
      */
     public void setAutores(List<String> autores) {
         this.autores = autores;
-    }
-
-    private String ano;
-    private String genero;
-    private List<String> instrumentos;
-    private List<String> autores;
-    //public static List<String> menu = new ArrayList(Arrays.asList("Digite um instrumento: ", "Digite o nome do diretor do filme: ", "Digite a duração do filme: "));
-    //public static List<String> variaveis = new ArrayList();
-
-
-    public Partitura( String codigo, String caminho, String titulo, String descricao, List instrumentos, String ano, List autores, String genero) {
-        super( codigo, caminho, titulo, descricao, genero, ano);
-        this.instrumentos = instrumentos;
-        this.autores = autores;
-    }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
-    public String getAno() {
-        return ano;
-    }
-
-    public void setAno(String ano) {
-        this.ano = ano;
     }
     
         /**

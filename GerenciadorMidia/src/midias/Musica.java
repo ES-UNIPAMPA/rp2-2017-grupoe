@@ -10,10 +10,8 @@ import java.util.List;
  */
 public class Musica extends Midia {
 
-    private String ano;
     private String duracao;
     private String idioma;
-    private String genero;
     private List<String> interpretes;
     private List<String> autores;
     public static List<String> menu = new ArrayList(Arrays.asList("Digite o idioma da Música: ", "Digite a duração do filme: "));

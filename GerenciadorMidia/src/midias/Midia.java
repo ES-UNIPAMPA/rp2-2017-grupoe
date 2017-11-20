@@ -2,26 +2,12 @@ package midias;
 
 public class Midia {
 
-    /**
-     * @return the ano
-     */
-    public String getAno() {
-        return ano;
-    }
-
-    /**
-     * @param ano the ano to set
-     */
-    public void setAno(String ano) {
-        this.ano = ano;
-    }
-
     private String codigo;
     protected String caminho;
     protected String titulo;
     protected String descricao;
-    private String genero;
-    private String ano;
+    protected String genero;
+    protected String ano;
 
     public Midia( String codigo, String caminho, String titulo, String descricao, String genero, String ano) {
         
@@ -90,5 +76,18 @@ public class Midia {
      */
     public void setGenero(String genero) {
         this.genero = genero;
+    }
+     /**
+     * @return the ano
+     */
+    public String getAno() {
+        return ano;
+    }
+
+    /**
+     * @param ano the ano to set
+     */
+    public void setAno(String ano) {
+        this.ano = ano;
     }
 }
