@@ -13,7 +13,7 @@ public class MenuMidias {
 
     GMidia gerenciadorMidia = new GMidia(new ArrayList());
 
-    void menu(String tipo) {
+    GMidia menu(String tipo) {
         Scanner entrada = new Scanner(System.in);
         String opcao = null;
         do {
@@ -41,10 +41,11 @@ public class MenuMidias {
                     midia.excluirMidia(tipo, gerenciadorMidia);
                     break;
                 case "0":
-                    break;
+                    return gerenciadorMidia;
                 default:
                     System.out.println("\nA Opção inserida é inválida. Digite novamente, por favor:");
             }
         } while (!opcao.equalsIgnoreCase("0"));
+        return null;
     }
 }

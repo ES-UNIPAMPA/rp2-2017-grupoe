@@ -38,10 +38,10 @@ public class GMidia extends gerPrincipal {
      * retorna null
      */
     @Override
-    public Midia consulta(String titulo) {
+    public Midia consulta(String dado) {
         for (int i = 0; i < listMidia.size(); i++) {
             Midia mostra = listMidia.get(i);
-            if (mostra.getTitulo().equals(titulo)) {
+            if (mostra.getTitulo().equals(dado) || mostra.getCodigo().equals(dado)) {
                 System.out.println(mostra);
             } 
         }
@@ -89,17 +89,18 @@ public class GMidia extends gerPrincipal {
      * Método para excluir uma midia
      *
      * @param titulo é recebido para identificar a midia que ira ser excluida.
+     * @param codigo
      * @return Vai retornar verdadeiro caso a remoção seja realizada com
      * sucesso. Caso contrário retornara false
      */
     @Override
-    public boolean exclusao(String titulo, String codigo) {
+    public boolean exclusao(String titulo, String codigo) {    
         for (int i = 0; i < listMidia.size(); i++) {
-            if (listMidia.get(i).equalsTitulo(titulo) && listMidia.get(i).equalsTitulo(codigo)) {
+            Midia escolhida = listMidia.get(i);
+            if (escolhida.getTitulo().equals(titulo) && escolhida.getCodigo().equals(codigo)) {
                 listMidia.remove(i);
                 return true;
             }
-
         }
         return false;
     }
