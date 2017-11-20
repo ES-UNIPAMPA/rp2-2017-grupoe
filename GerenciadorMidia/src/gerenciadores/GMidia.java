@@ -1,5 +1,6 @@
 package gerenciadores;
 
+import static gerenciadores.gerPrincipal.listMidia;
 import java.util.*;
 import midias.*;
 
@@ -36,10 +37,12 @@ public class GMidia extends gerPrincipal {
      * @return retorna a mdia desejada caso o codigo exista. Caso contrário
      * retorna null
      */
-    public Midia consulta(String titulo, String codigo) {
+    @Override
+    public Midia consulta(String titulo) {
         for (int i = 0; i < listMidia.size(); i++) {
-            if (listMidia.get(i).equalsTitulo(titulo) && listMidia.get(i).equalsTitulo(codigo)) {
-                return listMidia.get(i);
+            Midia mostra = listMidia.get(i);
+            if (mostra.getTitulo().equals(titulo)) {
+                System.out.println(mostra);
             } 
         }
         return null;
