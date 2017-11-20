@@ -38,7 +38,7 @@ public class GMidia extends gerPrincipal {
      * retorna null
      */
     @Override
-    public Midia consulta(String dado) {
+    public Midia exibir(String dado) {
         for (int i = 0; i < listMidia.size(); i++) {
             Midia mostra = listMidia.get(i);
             if (mostra.getTitulo().equals(dado) || mostra.getCodigo().equals(dado)) {
@@ -50,17 +50,17 @@ public class GMidia extends gerPrincipal {
 
     
     /**
-     * Método para exibir uma midia
+     * Método para consultar uma midia
      *
      * @param nome recebedio para exibir todo tipo de midia com esse parametro
      * @return Caso contenha as midias ele retornara. Caso contrário retornara
      * null
      */
-    @Override
-    public Midia exibir(String nome) {
+    public Midia consultar(String nome) {
         for (int i = 0; i < listMidia.size(); i++) {
-            if (listMidia.get(i).equalsTitulo(nome)) {
-                return listMidia.get(i);
+            Midia retorna = listMidia.get(i);
+            if (retorna.getTitulo().equals(nome)) {
+                return retorna;
             }
         }
         return null;
