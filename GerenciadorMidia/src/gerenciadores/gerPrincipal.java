@@ -12,13 +12,13 @@ public abstract class gerPrincipal {
     
     public abstract boolean adicionar(Midia midia);
     
-    public abstract Midia consulta(String codigo);
+    public abstract Midia consulta(String titulo, String codigo);
     
     public abstract void classifica(ArrayList<Midia> midia);
     
     public abstract boolean edicao(String codigo, Midia midia);
     
-    public abstract boolean exclusao(String nome);
+    public abstract boolean exclusao(String titulo, String codigo);
     
     public abstract Midia exibir(String nome);
  

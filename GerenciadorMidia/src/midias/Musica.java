@@ -1,34 +1,30 @@
 package midias;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
- * 
+ *
  * @author Débora Siqueira
  */
 public class Musica extends Midia {
 
     private String ano;
     private String duracao;
-    private String interprete;
     private String idioma;
-    private String autores;
     private String genero;
+    private List<String> interpretes;
+    private List<String> autores;
+    public static List<String> menu = new ArrayList(Arrays.asList("Digite o idioma da Música: ", "Digite a duração do filme: "));
+    public static List<String> variaveis = new ArrayList();
 
-    public Musica(String codigo, String caminho, String titulo, String descricao, String genero, String autores, String ano, String duracao, String interprete, String idioma) {
-        super(codigo, caminho, titulo, descricao);
-        this.ano = ano;
+    public Musica(String codigo, String caminho, String titulo, String descricao, String genero, List autores, String ano, String duracao, List interprete, String idioma) {
+        super(codigo, caminho, titulo, descricao, genero, ano);
         this.duracao = duracao;
-        this.interprete = interprete;
+        this.interpretes = interprete;
         this.idioma = idioma;
-        this.genero = genero;
         this.autores = autores;
-    }
-
-    public String getAno() {
-        return ano;
-    }
-
-    public void setAno(String ano) {
-        this.ano = ano;
     }
 
     public String getDuracao() {
@@ -37,14 +33,6 @@ public class Musica extends Midia {
 
     public void setDuracao(String duracao) {
         this.duracao = duracao;
-    }
-
-    public String getInterprete() {
-        return interprete;
-    }
-
-    public void setInterprete(String interprete) {
-        this.interprete = interprete;
     }
 
     public String getIdioma() {
@@ -56,30 +44,78 @@ public class Musica extends Midia {
     }
 
     /**
+     * @return the ano
+     */
+    public String getAno() {
+        return ano;
+    }
+
+    /**
+     * @param ano the ano to set
+     */
+    public void setAno(String ano) {
+        this.ano = ano;
+    }
+
+    /**
+     * @return the genero
+     */
+    public String getGenero() {
+        return genero;
+    }
+
+    /**
+     * @param genero the genero to set
+     */
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    /**
+     * @return the interpretes
+     */
+    public List<String> getInterpretes() {
+        return interpretes;
+    }
+
+    /**
+     * @param interpretes the interpretes to set
+     */
+    public void setInterpretes(List<String> interpretes) {
+        this.interpretes = interpretes;
+    }
+
+    /**
+     * @return the autores
+     */
+    public List<String> getAutores() {
+        return autores;
+    }
+
+    /**
+     * @param autores the autores to set
+     */
+    public void setAutores(List<String> autores) {
+        this.autores = autores;
+    }
+
+    /**
      * Método toString para representar os atributos do objeto
      *
      * @return retorna uma String com todas as informações
      */
     @Override
     public String toString() {
-        String dados;
-        dados = "Caminho do Arquivo: " + this.caminho + "\n" + "Título da Música: " + this.titulo + "\n" + "Autores da Música: " + this.autores + "\n" + "Descrição da Música: " + this.descricao + "\n" + "Genero da Música: " + this.genero + "\n" + "Idioma da Música: " + this.idioma + "\n" + "Interprete: " + this.interprete + "\n" + "Duração da Música:" + this.duracao;
-        return dados;
+        return String.format("Caminho: %s \n"
+                + "Titulo: %s \n"
+                + "Descrição: %s \n"
+                + "Genero: %s \n"
+                + "Idioma: %s \n"
+                + "Ano: %s \n"
+                + "Duração: %s \n"
+                + "Autores: %s \n"
+                + "Interpretes: %s \n",
+                caminho, titulo, descricao, genero, idioma, ano, duracao, autores, interpretes);
     }
 
-    public String getAutores() {
-        return autores;
-    }
-
-    public void setAutores(String autores) {
-        this.autores = autores;
-    }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
 }

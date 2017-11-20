@@ -2,25 +2,38 @@ package midias;
 
 public class Midia {
 
-    protected String codigo;
+    /**
+     * @return the ano
+     */
+    public String getAno() {
+        return ano;
+    }
+
+    /**
+     * @param ano the ano to set
+     */
+    public void setAno(String ano) {
+        this.ano = ano;
+    }
+
+    private String codigo;
     protected String caminho;
     protected String titulo;
     protected String descricao;
+    private String genero;
+    private String ano;
 
-    public Midia(String codigo, String caminho, String titulo, String descricao) {
+    public Midia( String codigo, String caminho, String titulo, String descricao, String genero, String ano) {
+        
         this.codigo = codigo;
         this.caminho = caminho;
         this.titulo = titulo;
+        this.genero = genero;
+        this.ano = ano;
         this.descricao = descricao;
     }
 
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
+   
 
     public String getCaminho() {
         return caminho;
@@ -44,5 +57,38 @@ public class Midia {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+    
+    
+    public boolean equalsTitulo(String nome){
+      return this.titulo.equalsIgnoreCase(nome);
+    }
+
+    /**
+     * @return the codigo
+     */
+    public String getCodigo() {
+        return codigo;
+    }
+
+    /**
+     * @param codigo the codigo to set
+     */
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    /**
+     * @return the genero
+     */
+    public String getGenero() {
+        return genero;
+    }
+
+    /**
+     * @param genero the genero to set
+     */
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 }

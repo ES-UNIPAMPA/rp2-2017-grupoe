@@ -10,33 +10,38 @@ import java.util.List;
  */
 public class Filme extends Midia {
 
+    /**
+     * @return the atores
+     */
+    public List<String> getAtores() {
+        return atores;
+    }
+
+    /**
+     * @param atores the atores to set
+     */
+    public void setAtores(List<String> atores) {
+        this.atores = atores;
+    }
+
     private String genero;
     private String idioma;
     private String diretor;
     private String ano;
     private String duracao;
     private List<String> atores;
-    public static List<String> menu = new ArrayList(Arrays.asList("Digite o genero do filme: ", "Digite o nome do diretor do filme: ", "Digite a duração do filme: "));
+    public static List<String> menu = new ArrayList(Arrays.asList("Digite o idioma:", "Digite o nome do diretor: ", "Digite a duração: "));
     public static List<String> variaveis = new ArrayList();
 
-    public Filme(String codigo, String caminho, String titulo, String descricao, String genero, String idioma, String diretor, List atores, String duracao, String ano) {
-        super(codigo, caminho, titulo, descricao);
-        this.genero = genero;
+    public Filme( String codigo, String caminho, String titulo, String descricao, String genero, String idioma, String diretor, List atores, String duracao, String ano) {
+        super( codigo, caminho, titulo, descricao, genero, ano);
         this.idioma = idioma;
         this.diretor = diretor;
         this.atores = atores;
-        this.ano = ano;
-        this.duracao = ano;       
+        this.duracao = duracao;       
     }
 
-    /**
-     * @return the aumentaCodigo
-     */
-    @Override
-    public String getCodigo() {
-        return codigo;
-    }
-
+   
     /**
      * @return the idioma
      */
@@ -51,10 +56,7 @@ public class Filme extends Midia {
         this.idioma = idioma;
     }
 
-    @Override
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
+  
 
     /**
      * @return the diretor
@@ -115,7 +117,7 @@ public class Filme extends Midia {
    @Override
      public String toString() {
         return String.format("Caminho: %s \n"
-                + "Titulo : %s \n"
+                + "Titulo: %s \n"
                 + "Descrição d: %s \n"
                 + "Genero: %s \n"
                 + "Idioma: %s \n"

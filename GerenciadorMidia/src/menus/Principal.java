@@ -4,9 +4,6 @@ import java.util.Scanner;
 
 public class Principal {
 
-    MenuMusica musica = new MenuMusica();
-    MenuFilme menuFilme = new MenuFilme();
-    MenuPartitura menuPartitura = new MenuPartitura();
     MenuMidias menuMidias = new MenuMidias();
 
     public void Menu() {
@@ -18,7 +15,6 @@ public class Principal {
             System.out.println("1- Música");
             System.out.println("2- Filme");
             System.out.println("3- Partituras");
-            System.out.println("4- Teste");
             System.out.println("0- Sair");
             System.out.println("Digite a opção de mídia desejada:");
             opcao = entrada.nextInt();
@@ -28,16 +24,11 @@ public class Principal {
                  * menu de interação referente a ela.
                  */
                 case 1:
-                    musica.menuMusica();
-                    break;
+                    menuMidias.menu("Musica");
                 case 2:
-                    menuFilme.filme();
-                    break;
+                    menuMidias.menu("Filme");
                 case 3:
-                    menuPartitura.partitura();
-                    break;
-                case 4:
-                    menuMidias.menu("filme");
+                    menuMidias.menu("Partitura");
                 case 0:
                     System.out.println("Até logo!");
                     break;
