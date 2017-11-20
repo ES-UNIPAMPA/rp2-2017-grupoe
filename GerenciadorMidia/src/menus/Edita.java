@@ -17,11 +17,13 @@ public class Edita {
     public boolean editarMidia(String tipo, GMidia midia) {
         Scanner e = new Scanner(System.in);
         String codigo = null, titulo = null, resp = null, titulog = null, desc, genero = null, idioma = null, atores=null, autores = null, interpretes = null, ano = null, duracao = null, diretor = null, instrumentos=null;
-        System.out.println("\nDigite o titulo da Música que deseja editar:");
+        System.out.println("\nDigite o titulo da Midia que deseja editar:");
         titulo = ValidarEntradaUsuario.nextLine(titulo);
-        System.out.println("\nDigite o titulo da Música que deseja editar:");
-        codigo = ValidarEntradaUsuario.nextLine(codigo);
-        Midia musica = midia.consultar(titulog);
+        System.out.println("\nDigite o codigo da Midia que deseja editar:");
+        codigo = ValidarEntradaUsuario.nextInt(codigo);
+        Midia musica = midia.consultar(titulog, codigo);
+        System.out.println("A midia selecionada: ");
+        System.out.println(musica.toString());
         System.out.println("Tecle ENTER caso não deseje editar este item.");
         System.out.println("Novo titulo: ");
         titulo = ValidarEntradaUsuario.nextLine(titulo);
@@ -53,7 +55,7 @@ public class Edita {
 
         //EDITA SOMENTE OS ITENS DE MUSICA
         if (tipo.equalsIgnoreCase("musica")) {
-            Musica mus = (Musica) midia.consultar(titulog);
+            Musica mus = (Musica) midia.consultar(titulog, codigo);
             System.out.println("Tecle ENTER caso não deseje editar este item.");
             System.out.println("Novo idioma da Música: ");
             idioma = ValidarEntradaUsuario.nextLine(idioma);
@@ -110,7 +112,7 @@ public class Edita {
 
         //MENU QUE EDITA SOMENTE PARTITURAS
         if (tipo.equalsIgnoreCase("partitura")) {
-            Partitura part = (Partitura) midia.consultar(titulog);
+            Partitura part = (Partitura) midia.consultar(titulog, codigo);
             System.out.println("Digite ENTER caso nao deseje editar este item.");
             System.out.println("Novo instrumento da Partitura: ");
             instrumentos = ValidarEntradaUsuario.nextLine(interpretes);
@@ -152,7 +154,7 @@ public class Edita {
         
         //MENU QUE EDITA SOMENTE FILMES  
         if (tipo.equalsIgnoreCase("filme")) {
-            Filme film = (Filme) midia.consultar(titulog);
+            Filme film = (Filme) midia.consultar(titulog, codigo);
             System.out.println("Pressione ENTER caso nao deseje editar este item.");
             System.out.println("Novo idioma do filme: ");
             idioma = ValidarEntradaUsuario.nextLine(idioma);

@@ -2,7 +2,6 @@ package menus;
 
 import gerenciadores.GMidia;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -32,6 +31,7 @@ public class MenuMidias {
                 case "2":
                     Edita mid = new Edita();
                     mid.editarMidia(tipo, gerenciadorMidia);
+                    break;
                 case "3":
                     Consulta midias = new Consulta();
                     midias.consultarMidia(gerenciadorMidia);
