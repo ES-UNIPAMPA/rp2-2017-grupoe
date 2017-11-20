@@ -22,8 +22,15 @@ public class Edita {
         System.out.println("\nDigite o codigo da Midia que deseja editar:");
         codigo = ValidarEntradaUsuario.nextInt(codigo);
         Midia musica = midia.consultar(titulog, codigo);
-        System.out.println("A midia selecionada: ");
+        System.out.println("\nA seguinte midia foi encontrada: ");
         System.out.println(musica.toString());
+        System.out.println("Deseja continuar?  1- SIM   2- NAO");
+        resp = ValidarEntradaUsuario.nextInt(resp);
+        if(!resp.equalsIgnoreCase("1")){
+            return false;
+        }
+        
+        //AQUI EDITA OS CAMPOS EM COMUM DE TODAS AS MIDIAS
         System.out.println("Tecle ENTER caso não deseje editar este item.");
         System.out.println("Novo titulo: ");
         titulo = ValidarEntradaUsuario.nextLine(titulo);
