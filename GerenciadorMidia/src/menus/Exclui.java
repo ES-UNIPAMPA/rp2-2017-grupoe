@@ -27,7 +27,7 @@ public class Exclui {
         excluir = ValidarEntradaUsuario.nextLine(excluir);
         System.out.println("Digite o codigo da Midia que deseja excluir:");
         codigo = ValidarEntradaUsuario.nextInt(codigo);
-        Midia resconsulta = midia.exibir(excluir);
+        Midia resconsulta = midia.consultar(excluir, codigo);
         if (resconsulta != null) {
             System.out.println(resconsulta);
         } else {
