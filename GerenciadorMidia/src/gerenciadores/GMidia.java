@@ -101,7 +101,7 @@ public class GMidia extends gerPrincipal {
     public boolean exclusao(String titulo, String codigo) {    
         for (int i = 0; i < listMidia.size(); i++) {
             Midia escolhida = listMidia.get(i);
-            if (escolhida.getTitulo().equals(titulo) && escolhida.getCodigo().equals(codigo)) {
+            if (escolhida.getTitulo().equals(titulo) || escolhida.getCodigo().equals(codigo)) {
                 listMidia.remove(escolhida);
                 return true;
             }
