@@ -58,7 +58,11 @@ public class MenuDaMusica implements IMenu {
     @Override
     public boolean adicionarMidia() {
         Scanner entrada = new Scanner(System.in);
-        String titulo = null, genero = null, idioma = null, autores = null, ano = null, duracao = null, descricao = null, interpretes, caminho;
+        String titulo = null, genero = null, idioma = null, autores = null, ano = null, duracao = null, descricao = null, codigos, interpretes, caminho;
+        Random gerador = new Random();
+        int codigo;
+        codigo = gerador.nextInt(10000);
+        codigos = "" + codigo;
         System.out.println("Digite o título da Música:");
         titulo = ValidarEntradaUsuario.nextLine(titulo);
         System.out.println("Digite o genero da Música:");
@@ -77,7 +81,8 @@ public class MenuDaMusica implements IMenu {
         System.out.println("Digite os interpretes da Música:");
         interpretes = entrada.nextLine();
         caminho = new java.io.File(".").getAbsolutePath();
-        Musica musica = new Musica(caminho, titulo, descricao, genero, autores, ano, duracao, interpretes, idioma);
+        System.out.println("Codigo da sua musica: " + codigos);
+        Musica musica = new Musica(caminho, titulo, descricao, codigos, genero, autores, ano, duracao, interpretes, idioma);
         if (gerenciadorMusica.adicionar(musica)) {
             System.out.println("Música adicionada com sucesso!");
             return true;
@@ -94,12 +99,14 @@ public class MenuDaMusica implements IMenu {
     @Override
     public boolean excluirMidia() {
         Scanner entrada = new Scanner(System.in);
-        String excluir;
+        String excluir = null, codigo = null;
         int resposta = 0;
         boolean ficar;
         System.out.println("Digite o titulo da Música que deseja excluir:");
-        excluir = entrada.nextLine();
-        System.out.println(gerenciadorMusica.consulta(excluir));
+        excluir = ValidarEntradaUsuario.nextLine(excluir);
+        System.out.println("Digite o codigo da musica: ");
+        codigo = ValidarEntradaUsuario.nextInt(codigo);
+        System.out.println(gerenciadorMusica.consulta(excluir, codigo));
         do {
 
             System.out.println("\nTem certeza que deseja excluir a Música?"
@@ -135,10 +142,12 @@ public class MenuDaMusica implements IMenu {
     public void consultarMidia() {
 
         Scanner entrada = new Scanner(System.in);
-        String consulta;
+        String consulta = null, codigo = null;
         System.out.println("Digite o titulo da Música que desejas consultar:");
-        consulta = entrada.nextLine();
-        Midia musica = gerenciadorMusica.consulta(consulta);
+        consulta = ValidarEntradaUsuario.nextLine(consulta);
+        System.out.println("Digite o codigo da musica: ");
+        codigo = ValidarEntradaUsuario.nextInt(codigo);
+        Midia musica = gerenciadorMusica.consulta(consulta, codigo);
         if (musica == null) {
             System.out.println("Musica inexistente.");
         } else {
@@ -155,10 +164,12 @@ public class MenuDaMusica implements IMenu {
     public boolean editarMidia() {
         Scanner e = new Scanner(System.in);
         double duracao1 = Integer.MIN_VALUE;
-        String codigo, titulo = null, desc = null, genero = null, idioma = null, autores = null, interpretes = null, ano = null, duracao = null;
+        String codigo = null, titulo = null, desc = null, genero = null, idioma = null, autores = null, interpretes = null, ano = null, duracao = null;
         System.out.println("\nDigite o titulo da Música que deseja editar:");
-        codigo = e.nextLine();
-        Musica musica = (Musica) gerenciadorMusica.consulta(codigo);
+        titulo = ValidarEntradaUsuario.nextLine(titulo);
+        System.out.println("Digite o codigo da sua musica: ");
+        codigo = ValidarEntradaUsuario.nextInt(codigo);
+        Musica musica = (Musica) gerenciadorMusica.consulta(titulo, codigo);
         System.out.println("Tecle ENTER caso não deseje editar este item.");
         System.out.println("Novo titulo da Música: ");
         titulo = ValidarEntradaUsuario.entradaEnterTexto(titulo);

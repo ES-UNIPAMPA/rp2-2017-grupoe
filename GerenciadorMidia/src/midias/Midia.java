@@ -5,12 +5,14 @@ public class Midia {
     protected String caminho;
     protected String titulo;
     protected String descricao;
+    private String codigo;
 
-    public Midia(String caminho, String titulo, String descricao) {
+    public Midia(String caminho, String titulo, String descricao, String codigo) {
 
         this.caminho = caminho;
         this.titulo = titulo;
         this.descricao = descricao;
+        this.codigo = codigo;
     }
 
     public String getCaminho() {
@@ -44,8 +46,17 @@ public class Midia {
     public String toFile() {
         return "";
     }
+
     @Override
-    public String toString(){
+    public String toString() {
         return "";
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 }

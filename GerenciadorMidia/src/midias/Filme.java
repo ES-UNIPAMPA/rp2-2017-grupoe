@@ -12,15 +12,17 @@ public class Filme extends Midia {
     private String ano;
     private String duracao;
     private String atores;
+    private String local;
 
-    public Filme(String caminho, String titulo, String descricao, String genero, String idioma, String diretor, String atores, String duracao, String ano) {
-        super(caminho, titulo, descricao);
+    public Filme(String caminho, String titulo, String descricao, String codigo, String genero, String idioma, String diretor, String atores, String duracao, String ano, String local) {
+        super(caminho, titulo, descricao, codigo);
         this.genero = genero;
         this.idioma = idioma;
         this.diretor = diretor;
         this.atores = atores;
         this.ano = ano;
         this.duracao = duracao;
+        this.local = local;
     }
 
     /**
@@ -124,7 +126,7 @@ public class Filme extends Midia {
     @Override
     public String toFile() {
         String dados;
-        dados = caminho + "\n" + titulo + "\n" + descricao + "\n" + genero + "\n" + idioma + "\n" + diretor + "\n" + ano + "\n" + duracao + "\n" + this.atores;
+        dados = caminho + "\n" + titulo + "\n" + descricao + "\n" + genero + "\n" + idioma + "\n" + diretor + "\n" + ano + "\n" + duracao + "\n" + this.atores + "\n" + this.local;
         return dados;
     }
 }

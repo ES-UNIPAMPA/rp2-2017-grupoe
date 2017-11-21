@@ -47,7 +47,11 @@ public class MenuPartitura implements IMenu {
 
     @Override
     public boolean adicionarMidia() {
-        String caminho, titulo = null, descricao = null, ano = null, genero = null, autores = null, instrumento = null;
+        String caminho, titulo = null, descricao = null, ano = null, genero = null, autores = null, instrumento = null, codigos;
+        Random gerador = new Random();
+        int codigo;
+        codigo = gerador.nextInt(10000);
+        codigos = "" + codigo;
         System.out.println("\nDigite o título da Partitura:");
         titulo = ValidarEntradaUsuario.nextLine(titulo);
         System.out.println("Digite o genero da Partitura:");
@@ -60,9 +64,10 @@ public class MenuPartitura implements IMenu {
         instrumento = ValidarEntradaUsuario.nextLine(instrumento);
         System.out.println("Digite os autores da Partitura: ");
         autores = ValidarEntradaUsuario.nextLine(autores);
+        System.out.println("Código da partitura: " + codigos);
         caminho = new java.io.File(".").getAbsolutePath();
         //String caminho, String titulo, String descricao, String ano, String autores, String genero, String instrumentos
-        Partitura partitura = new Partitura(caminho, titulo, descricao, ano, autores, genero, instrumento);
+        Partitura partitura = new Partitura(caminho, titulo, descricao, codigos, ano, autores, genero, instrumento);
         if (gerenciadorPartitura.adicionar(partitura)) {
             System.out.println("\nPartitura adicionada com sucesso! =D");
             return true;
@@ -73,10 +78,12 @@ public class MenuPartitura implements IMenu {
     @Override
     public boolean excluirMidia() {
         Scanner entrada = new Scanner(System.in);
-        String titulo = null;
+        String titulo = null, codigo = null;
         System.out.println("\nDigite o titulo da Partitura que deseja excluir:");
         titulo = ValidarEntradaUsuario.nextLine(titulo);
-        System.out.println(gerenciadorPartitura.consulta(titulo));
+        System.out.println("Digite o codigo da partitura: ");
+        codigo = ValidarEntradaUsuario.nextInt(codigo);
+        System.out.println(gerenciadorPartitura.consulta(titulo, codigo));
         System.out.println("\nTem certeza que deseja excluir essa Partitura?"
                 + "\n1 - SIM"
                 + "\n2 - NÃO");
@@ -100,10 +107,12 @@ public class MenuPartitura implements IMenu {
     @Override
     public void consultarMidia() {
         Scanner entrada = new Scanner(System.in);
-        String consulta = null;
+        String consulta = null, codigo = null;
         System.out.println("\nDigite o titulo da Partitura que deseja consultar:");
         consulta = ValidarEntradaUsuario.nextLine(consulta);
-        Midia partitura = gerenciadorPartitura.consulta(consulta);
+        System.out.println("Digite o codigo da partitura: ");
+        codigo = ValidarEntradaUsuario.nextInt(codigo);
+        Midia partitura = gerenciadorPartitura.consulta(consulta, codigo);
         if (partitura == null) {
             System.out.println("Partitura inexistente.");
         } else {
@@ -114,10 +123,12 @@ public class MenuPartitura implements IMenu {
     @Override
     public boolean editarMidia() {
         Scanner e = new Scanner(System.in);
-        String caminho, titulo = null, descricao = null, ano = null, genero = null, instrumento = null;
+        String caminho, titulo = null, descricao = null, ano = null, genero = null, instrumento = null, codigo = null;
         System.out.println("\nDigite o titulo da Partitura que deseja Editar:");
         titulo = ValidarEntradaUsuario.nextLine(titulo);
-        Partitura partitura = (Partitura) gerenciadorPartitura.consulta(titulo);
+        System.out.println("Digite o codigo da partitura: ");
+        codigo = ValidarEntradaUsuario.nextInt(codigo);
+        Partitura partitura = (Partitura) gerenciadorPartitura.consulta(titulo, codigo);
         System.out.println("Digite ENTER caso nao deseje editar este item.");
         System.out.println("Novo titulo da Partitura: ");
         titulo = ValidarEntradaUsuario.entradaEnterTexto(titulo);

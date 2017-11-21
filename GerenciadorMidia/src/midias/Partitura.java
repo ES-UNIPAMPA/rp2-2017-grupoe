@@ -7,8 +7,8 @@ public class Partitura extends Midia {
     private String genero;
     private String instrumentos;
 
-    public Partitura(String caminho, String titulo, String descricao, String ano, String autores, String genero, String instrumentos) {
-        super(caminho, titulo, descricao);
+    public Partitura(String caminho, String titulo, String descricao, String codigo, String ano, String autores, String genero, String instrumentos) {
+        super(caminho, titulo, descricao, codigo);
         this.ano = ano;
         this.autores = autores;
         this.genero = genero;

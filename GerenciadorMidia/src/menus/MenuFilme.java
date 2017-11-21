@@ -62,7 +62,10 @@ public class MenuFilme implements IMenu {
     public boolean adicionarMidia() {
         Random gerador = new Random();
         Scanner entrada = new Scanner(System.in);
-        String caminho, titulo = null, descricao = null, genero = null, idioma = null, diretor = null, atores, local, duracao = null, ano = null;
+        int codigos;
+        codigos = gerador.nextInt(10000);
+        String codigo = "" + codigos;
+        String caminho, titulo = null, descricao = null, genero = null, idioma = null, diretor = null, atores, local = null, duracao = null, ano = null;
         System.out.println("\nDigite o título do filme:");
         titulo = ValidarEntradaUsuario.nextLine(titulo);
         System.out.println("Digite o genero do filme:");
@@ -81,9 +84,10 @@ public class MenuFilme implements IMenu {
         System.out.println("Digite o nome dos atores principais: (separados por espaço)");
         atores = entrada.nextLine();
         System.out.println("Digite o local onde foi gravado o filme:");
-        local = entrada.nextLine();
+        local = ValidarEntradaUsuario.nextInt(local);
         caminho = new java.io.File(".").getAbsolutePath();
-        Filme filme = new Filme(caminho, titulo, descricao, genero, idioma, diretor, atores, duracao, ano);
+        System.out.println("Codigo do seu filme: " + codigo);
+        Filme filme = new Filme(caminho, titulo, descricao, codigo, genero, idioma, diretor, atores, duracao, ano, local);
         if (gerenciadorFilme.adicionar(filme)) {
             System.out.println("\nFilme adicionado com sucesso!");
             return true;
@@ -99,11 +103,13 @@ public class MenuFilme implements IMenu {
     @Override
     public boolean excluirMidia() {
         Scanner entrada = new Scanner(System.in);
-        String titulo = null;
+        String titulo = null, codigo = null;
         boolean ficar;
         System.out.println("\nDigite o codigo do filme que deseja excluir:");
         titulo = ValidarEntradaUsuario.nextLine(titulo);
-        System.out.println(gerenciadorFilme.consulta(titulo));
+        System.out.println("Digite o título do filme que deseja excluir: ");
+        codigo = ValidarEntradaUsuario.nextInt(codigo);
+        System.out.println(gerenciadorFilme.consulta(titulo, codigo));
         do {
             System.out.println("\nTem certeza que deseja excluir esse filme?"
                     + "\n1- SIM"
@@ -134,10 +140,12 @@ public class MenuFilme implements IMenu {
     @Override
     public void consultarMidia() {
         Scanner entrada = new Scanner(System.in);
-        String consulta = null;
+        String consulta = null, codigo = null;
         System.out.println("\nDigite o titulo do filme que deseja consultar:");
         consulta = ValidarEntradaUsuario.nextLine(consulta);
-        Midia filme = gerenciadorFilme.consulta(consulta);
+        System.out.println("Digite o código do filme que deseja consultar: ");
+        codigo = ValidarEntradaUsuario.nextInt(codigo);
+        Midia filme = gerenciadorFilme.consulta(consulta, codigo);
         if (filme == null) {
             System.out.println("Filme inexistente.");
         } else {
@@ -153,10 +161,12 @@ public class MenuFilme implements IMenu {
     @Override
     public boolean editarMidia() {
         Scanner e = new Scanner(System.in);
-        String titulo, desc, genero, idioma, diretor, atores, ano, duracao;
+        String titulo = null, desc, genero, idioma, diretor, atores, ano, duracao, codigo = null;
         System.out.println("\nDigite o titulo do filme que deseja excluir:");
-        titulo = e.nextLine();
-        Filme filme = (Filme) gerenciadorFilme.consulta(titulo);
+        titulo = ValidarEntradaUsuario.nextLine(titulo);
+        System.out.println("Digite o codigo do filme que deseja excluir:");
+        codigo = ValidarEntradaUsuario.nextInt(codigo);
+        Filme filme = (Filme) gerenciadorFilme.consulta(titulo, codigo);
         System.out.println("pressione ENTER caso nao deseje editar este item.");
         System.out.println("Novo titulo do filme: ");
         titulo = e.nextLine();

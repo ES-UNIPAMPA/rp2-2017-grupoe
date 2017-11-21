@@ -46,13 +46,14 @@ public class GMidia extends gerPrincipal {
      * Método para consultar uma midia
      *
      * @param titulo
+     * @param codigo
      * @return retorna a mdia desejada caso o codigo exista. Caso contrário
      * retorna null
      */
     @Override
-    public Midia consulta(String titulo) {
+    public Midia consulta(String titulo, String codigo) {
         for (Midia midia : listMidias) {
-            if (midia.getTitulo().equalsIgnoreCase(titulo)) {
+            if (midia.getTitulo().equalsIgnoreCase(titulo) || midia.getCodigo().equalsIgnoreCase(codigo)) {
                 salvar();
                 return midia;
             }
@@ -197,7 +198,9 @@ public class GMidia extends gerPrincipal {
                 dados.get(5),
                 dados.get(6),
                 dados.get(7),
-                dados.get(8));
+                dados.get(8),
+                dados.get(9),
+                dados.get(10));
         adicionar(novo);
 
     }
@@ -211,7 +214,8 @@ public class GMidia extends gerPrincipal {
                 dados.get(5),
                 dados.get(6),
                 dados.get(7),
-                dados.get(8));
+                dados.get(8),
+                dados.get(9));
         adicionar(musica);
 
     }
@@ -223,7 +227,8 @@ public class GMidia extends gerPrincipal {
                 dados.get(3),
                 dados.get(4),
                 dados.get(5),
-                dados.get(6));
+                dados.get(6),
+                dados.get(7));
 
         adicionar(novo);
     }
