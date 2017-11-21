@@ -63,7 +63,7 @@ public class GMidia extends gerPrincipal {
     public Midia consultar(String titulo, String codigo) {
         for (int i = 0; i < listMidia.size(); i++) {
             Midia retorna = listMidia.get(i);
-            if (retorna.getTitulo().equals(titulo) && retorna.getCodigo().equals(codigo)) {
+            if (retorna.getTitulo().equals(titulo) || retorna.getCodigo().equals(codigo)) {
                 return retorna;
             }
         }

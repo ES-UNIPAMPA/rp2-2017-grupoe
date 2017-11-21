@@ -20,7 +20,7 @@ public class Edita {
         System.out.println("\nDigite o titulo da Midia que deseja editar:");
         titulo = ValidarEntradaUsuario.nextLine(titulo);
         System.out.println("\nDigite o codigo da Midia que deseja editar:");
-        codigo = e.nextLine();
+        codigo = ValidarEntradaUsuario.nextInt(codigo);
         Midia musica = midia.consultar(titulog, codigo);
         System.out.println("\nA seguinte midia foi encontrada: ");
         System.out.println(musica.toString());
