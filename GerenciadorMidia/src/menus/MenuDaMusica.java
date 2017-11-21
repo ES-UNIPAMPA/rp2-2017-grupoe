@@ -82,7 +82,7 @@ public class MenuDaMusica implements IMenu {
         interpretes = entrada.nextLine();
         caminho = new java.io.File(".").getAbsolutePath();
         System.out.println("Codigo da sua musica: " + codigos);
-        Musica musica = new Musica(caminho, titulo, descricao, codigos, genero, autores, ano, duracao, interpretes, idioma);
+        Musica musica = new Musica(caminho, titulo, descricao, genero, autores, ano, duracao, interpretes, idioma);
         if (gerenciadorMusica.adicionar(musica)) {
             System.out.println("Música adicionada com sucesso!");
             return true;
@@ -104,8 +104,8 @@ public class MenuDaMusica implements IMenu {
         boolean ficar;
         System.out.println("Digite o titulo da Música que deseja excluir:");
         excluir = ValidarEntradaUsuario.nextLine(excluir);
-        System.out.println("Digite o codigo da musica: ");
-        codigo = ValidarEntradaUsuario.nextInt(codigo);
+        //System.out.println("Digite o codigo da musica: ");
+        //codigo = ValidarEntradaUsuario.nextInt(codigo);
         System.out.println(gerenciadorMusica.consulta(excluir, codigo));
         do {
 
@@ -115,7 +115,7 @@ public class MenuDaMusica implements IMenu {
             resposta = ValidarEntradaUsuario.validarInteiro(resposta);
             switch (resposta) {
                 case 1:
-                    if (gerenciadorMusica.exclusao(excluir)) {
+                    if (gerenciadorMusica.exclusao(excluir, codigo)) {
                         System.out.println("\nMúsica excluida com sucesso!");
                         return true;
                     } else {
@@ -145,8 +145,8 @@ public class MenuDaMusica implements IMenu {
         String consulta = null, codigo = null;
         System.out.println("Digite o titulo da Música que desejas consultar:");
         consulta = ValidarEntradaUsuario.nextLine(consulta);
-        System.out.println("Digite o codigo da musica: ");
-        codigo = ValidarEntradaUsuario.nextInt(codigo);
+        //System.out.println("Digite o codigo da musica: ");
+        //codigo = ValidarEntradaUsuario.nextInt(codigo);
         Midia musica = gerenciadorMusica.consulta(consulta, codigo);
         if (musica == null) {
             System.out.println("Musica inexistente.");

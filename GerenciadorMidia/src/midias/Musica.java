@@ -13,8 +13,8 @@ public class Musica extends Midia {
     private String autores;
     private String genero;
 
-    public Musica(String caminho, String titulo, String descricao, String codigo, String genero, String autores, String ano, String duracao, String interprete, String idioma) {
-        super(caminho, titulo, descricao, codigo);
+    public Musica(String caminho, String titulo, String descricao, String genero, String autores, String ano, String duracao, String interprete, String idioma) {
+        super(caminho, titulo, descricao);
         this.ano = ano;
         this.duracao = duracao;
         this.interprete = interprete;

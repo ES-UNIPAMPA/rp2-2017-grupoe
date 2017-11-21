@@ -87,7 +87,7 @@ public class MenuFilme implements IMenu {
         local = ValidarEntradaUsuario.nextInt(local);
         caminho = new java.io.File(".").getAbsolutePath();
         System.out.println("Codigo do seu filme: " + codigo);
-        Filme filme = new Filme(caminho, titulo, descricao, codigo, genero, idioma, diretor, atores, duracao, ano, local);
+        Filme filme = new Filme(caminho, titulo, descricao, genero, idioma, diretor, atores, duracao, ano, local);
         if (gerenciadorFilme.adicionar(filme)) {
             System.out.println("\nFilme adicionado com sucesso!");
             return true;
@@ -107,8 +107,8 @@ public class MenuFilme implements IMenu {
         boolean ficar;
         System.out.println("\nDigite o codigo do filme que deseja excluir:");
         titulo = ValidarEntradaUsuario.nextLine(titulo);
-        System.out.println("Digite o título do filme que deseja excluir: ");
-        codigo = ValidarEntradaUsuario.nextInt(codigo);
+        //System.out.println("Digite o título do filme que deseja excluir: ");
+        //codigo = ValidarEntradaUsuario.nextInt(codigo);
         System.out.println(gerenciadorFilme.consulta(titulo, codigo));
         do {
             System.out.println("\nTem certeza que deseja excluir esse filme?"
@@ -118,7 +118,7 @@ public class MenuFilme implements IMenu {
             res = ValidarEntradaUsuario.validarInteiro(res);
             switch (res) {
                 case 1:
-                    if (gerenciadorFilme.exclusao(titulo)) {
+                    if (gerenciadorFilme.exclusao(titulo, codigo)) {
                         System.out.println("\nFilme excluido com sucesso!");
                         return true;
                     } else {
@@ -143,8 +143,8 @@ public class MenuFilme implements IMenu {
         String consulta = null, codigo = null;
         System.out.println("\nDigite o titulo do filme que deseja consultar:");
         consulta = ValidarEntradaUsuario.nextLine(consulta);
-        System.out.println("Digite o código do filme que deseja consultar: ");
-        codigo = ValidarEntradaUsuario.nextInt(codigo);
+        //System.out.println("Digite o código do filme que deseja consultar: ");
+        //codigo = ValidarEntradaUsuario.nextInt(codigo);
         Midia filme = gerenciadorFilme.consulta(consulta, codigo);
         if (filme == null) {
             System.out.println("Filme inexistente.");
@@ -163,8 +163,8 @@ public class MenuFilme implements IMenu {
         Scanner e = new Scanner(System.in);
         String titulo = null, desc, genero, idioma, diretor, atores, ano, duracao, codigo = null;
         System.out.println("\nDigite o titulo do filme que deseja excluir:");
-        titulo = ValidarEntradaUsuario.nextLine(titulo);
-        System.out.println("Digite o codigo do filme que deseja excluir:");
+        //titulo = ValidarEntradaUsuario.nextLine(titulo);
+        //System.out.println("Digite o codigo do filme que deseja excluir:");
         codigo = ValidarEntradaUsuario.nextInt(codigo);
         Filme filme = (Filme) gerenciadorFilme.consulta(titulo, codigo);
         System.out.println("pressione ENTER caso nao deseje editar este item.");

@@ -14,8 +14,8 @@ public class Filme extends Midia {
     private String atores;
     private String local;
 
-    public Filme(String caminho, String titulo, String descricao, String codigo, String genero, String idioma, String diretor, String atores, String duracao, String ano, String local) {
-        super(caminho, titulo, descricao, codigo);
+    public Filme(String caminho, String titulo, String descricao, String genero, String idioma, String diretor, String atores, String duracao, String ano, String local) {
+        super(caminho, titulo, descricao);
         this.genero = genero;
         this.idioma = idioma;
         this.diretor = diretor;
@@ -105,7 +105,7 @@ public class Filme extends Midia {
                 + "Ano: %s \n "
                 + "Duração: %s \n"
                 + "Atores: %s \n",
-                caminho, titulo, descricao, genero, idioma, diretor, ano, duracao, getAtores());
+                caminho, titulo, descricao, genero, idioma, diretor, ano, duracao, atores);
     }
 
     /**

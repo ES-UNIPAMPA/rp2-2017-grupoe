@@ -67,7 +67,7 @@ public class MenuPartitura implements IMenu {
         System.out.println("Código da partitura: " + codigos);
         caminho = new java.io.File(".").getAbsolutePath();
         //String caminho, String titulo, String descricao, String ano, String autores, String genero, String instrumentos
-        Partitura partitura = new Partitura(caminho, titulo, descricao, codigos, ano, autores, genero, instrumento);
+        Partitura partitura = new Partitura(caminho, titulo, descricao, ano, autores, genero, instrumento);
         if (gerenciadorPartitura.adicionar(partitura)) {
             System.out.println("\nPartitura adicionada com sucesso! =D");
             return true;
@@ -90,7 +90,7 @@ public class MenuPartitura implements IMenu {
         int res = entrada.nextInt();
         switch (res) {
             case 1:
-                if (gerenciadorPartitura.exclusao(titulo)) {
+                if (gerenciadorPartitura.exclusao(titulo, codigo)) {
                     System.out.println("\nPartitura excluida com sucesso!");
                     return true;
                 } else {
@@ -110,8 +110,8 @@ public class MenuPartitura implements IMenu {
         String consulta = null, codigo = null;
         System.out.println("\nDigite o titulo da Partitura que deseja consultar:");
         consulta = ValidarEntradaUsuario.nextLine(consulta);
-        System.out.println("Digite o codigo da partitura: ");
-        codigo = ValidarEntradaUsuario.nextInt(codigo);
+        //System.out.println("Digite o codigo da partitura: ");
+        //codigo = ValidarEntradaUsuario.nextInt(codigo);
         Midia partitura = gerenciadorPartitura.consulta(consulta, codigo);
         if (partitura == null) {
             System.out.println("Partitura inexistente.");
@@ -126,8 +126,8 @@ public class MenuPartitura implements IMenu {
         String caminho, titulo = null, descricao = null, ano = null, genero = null, instrumento = null, codigo = null;
         System.out.println("\nDigite o titulo da Partitura que deseja Editar:");
         titulo = ValidarEntradaUsuario.nextLine(titulo);
-        System.out.println("Digite o codigo da partitura: ");
-        codigo = ValidarEntradaUsuario.nextInt(codigo);
+        //System.out.println("Digite o codigo da partitura: ");
+        //codigo = ValidarEntradaUsuario.nextInt(codigo);
         Partitura partitura = (Partitura) gerenciadorPartitura.consulta(titulo, codigo);
         System.out.println("Digite ENTER caso nao deseje editar este item.");
         System.out.println("Novo titulo da Partitura: ");

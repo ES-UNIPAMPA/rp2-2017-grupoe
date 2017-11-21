@@ -18,7 +18,7 @@ public abstract class gerPrincipal {
     
     public abstract boolean edicao(String codigo, Midia midia);
     
-    public abstract boolean exclusao(String nome);
+    public abstract boolean exclusao(String nome, String codigo);
     
     public abstract Midia exibir(String nome);
  

@@ -7,12 +7,12 @@ public class Midia {
     protected String descricao;
     private String codigo;
 
-    public Midia(String caminho, String titulo, String descricao, String codigo) {
+    public Midia(String caminho, String titulo, String descricao) {
 
         this.caminho = caminho;
         this.titulo = titulo;
         this.descricao = descricao;
-        this.codigo = codigo;
+        //this.codigo = codigo;
     }
 
     public String getCaminho() {

@@ -7,8 +7,8 @@ public class Partitura extends Midia {
     private String genero;
     private String instrumentos;
 
-    public Partitura(String caminho, String titulo, String descricao, String codigo, String ano, String autores, String genero, String instrumentos) {
-        super(caminho, titulo, descricao, codigo);
+    public Partitura(String caminho, String titulo, String descricao, String ano, String autores, String genero, String instrumentos) {
+        super(caminho, titulo, descricao);
         this.ano = ano;
         this.autores = autores;
         this.genero = genero;
@@ -45,7 +45,7 @@ public class Partitura extends Midia {
      * @return retorna uma String com todas as informações
      */
     @Override
-    public String toString() {
+    public String toString() {        
         return String.format("Caminho: %s \n"
                 + "Titulo da partitura: %s \n"
                 + "Descrição da Partitura: %s \n"
@@ -53,13 +53,13 @@ public class Partitura extends Midia {
                 + "Autor da Partitura: %s \n"
                 + "Ano de Crição da Partitura: %s \n"
                 + "Gênero da Partitura: %s \n ",
-                caminho, titulo, descricao, autores, ano, genero);
+                caminho, titulo, descricao, instrumentos, autores, ano, genero);
     }
 
     @Override
     public String toFile() {
         String dados;
-        dados = this.caminho + "\n" + titulo + "\n" + descricao + "\n" + autores + "\n" + ano + "\n" + genero + "\n" + this.instrumentos;
+        dados = this.caminho + "\n" + this.titulo + "\n" + this.descricao + "\n" + this.autores + "\n" + this.ano + "\n" + this.genero + "\n" + this.instrumentos;
         return dados;
     }
 
