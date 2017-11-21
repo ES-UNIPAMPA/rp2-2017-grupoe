@@ -15,16 +15,17 @@ public class GMidia extends gerPrincipal {
         listMidia = listaMidia;
 
     }
-    public GMidia(){
-     
- }
-  
+
+    public GMidia() {
+
+    }
 
     /**
      * Método para adicionar uma midia
      *
      * @param midia Recebe a midia que será adicionada
-     * @return Retorna true caso a midia foi adicionada. Caso contrário retorna false.
+     * @return Retorna true caso a midia foi adicionada. Caso contrário retorna
+     * false.
      */
     @Override
     public boolean adicionar(Midia midia) {
@@ -47,12 +48,13 @@ public class GMidia extends gerPrincipal {
             if (mostra.getTitulo().equals(dado) || mostra.getCodigo().equals(dado)) {
                 System.out.println(mostra);
                 return mostra;
-            } 
+            } else {
+                return null;
+            }
         }
         return null;
     }
 
-    
     /**
      * Método para consultar uma midia
      *
@@ -98,7 +100,7 @@ public class GMidia extends gerPrincipal {
      * sucesso. Caso contrário retornara false
      */
     @Override
-    public boolean exclusao(String titulo, String codigo) {    
+    public boolean exclusao(String titulo, String codigo) {
         for (int i = 0; i < listMidia.size(); i++) {
             Midia escolhida = listMidia.get(i);
             if (escolhida.getTitulo().equals(titulo) || escolhida.getCodigo().equals(codigo)) {
