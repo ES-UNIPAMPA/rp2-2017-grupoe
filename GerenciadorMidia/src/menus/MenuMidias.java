@@ -9,8 +9,9 @@ import java.util.Scanner;
  * @author Rafael
  */
 public class MenuMidias {
-
-    GMidia gerenciadorMidia = new GMidia(new ArrayList());
+    
+    String caminho = "";
+    GMidia gerenciadorMidia = new GMidia(new ArrayList(), caminho);
 
     GMidia menu(String tipo) {
         Scanner entrada = new Scanner(System.in);

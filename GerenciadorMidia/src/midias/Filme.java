@@ -115,5 +115,20 @@ public class Filme extends Midia {
     public String getGenero() {
         return genero;
     }
+    
+    
+    @Override
+    public String toFile(){
+        return String.format("Caminho: %s \n"
+                + "Titulo: %s \n"
+                + "Descrição d: %s \n"
+                + "Genero: %s \n"
+                + "Idioma: %s \n"
+                + "Diretor:  %s \n"
+                + "Ano: %s \n"
+                + "Duração: %s \n"
+                + "Atores: %s \n",
+                caminho, titulo, descricao, genero, idioma, diretor, ano, duracao, atores);
+    }
 
 }

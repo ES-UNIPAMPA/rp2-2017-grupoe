@@ -46,6 +46,8 @@ public class Adiciona {
         //Aqui inicia os menus que cada midia tem diferente
         //MENU FILME
         if (tipo.equalsIgnoreCase("filme")) {
+            String caminhoArquivo = "src/Arquivos/filme.txt";
+            GMidia gerenciador = new GMidia(new ArrayList(), caminhoArquivo);
             ArrayList atores = new ArrayList();
             do {
                 System.out.println("Digite o nome do Ator principal: ");
@@ -74,6 +76,8 @@ public class Adiciona {
 
         //MENU MUSICA
         if (tipo.equalsIgnoreCase("musica")) {
+            String caminhoArquivo = "src/Arquivos/musica.txt";
+            GMidia gerenciador = new GMidia(new ArrayList(), caminhoArquivo);
             ArrayList autores = new ArrayList();
             ArrayList interpretes = new ArrayList();
             do {
@@ -109,6 +113,8 @@ public class Adiciona {
 
         //MENU PARTITURA
         if (tipo.equalsIgnoreCase("partitura")) {
+            String caminhoArquivo = "src/Arquivos/paritura.txt";
+            GMidia gerenciador = new GMidia(new ArrayList(), caminhoArquivo);
             ArrayList autores = new ArrayList();
             ArrayList instrumentos = new ArrayList();
             do {

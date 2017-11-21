@@ -62,5 +62,16 @@ public class Partitura extends Midia {
                 + "Instrumentos: %s \n",
                 caminho, titulo, descricao, ano, genero, autores, instrumentos);
     }
+    
+    public String toFile(){
+                return String.format("Caminho: %s \n"
+                + "Titulo da partitura: %s \n"
+                + "Descrição da Partitura: %s \n"                  
+                + "Ano de Crição da Partitura: %s \n"
+                + "Gênero da Partitura: %s \n "
+                + "Autores da Partitura: %s \n"
+                + "Instrumentos: %s \n",
+                caminho, titulo, descricao, ano, genero, autores, instrumentos);
+    }
 
 }

@@ -115,5 +115,19 @@ public class Musica extends Midia {
                 + "Interpretes: %s \n",
                 caminho, titulo, descricao, genero, idioma, ano, duracao, autores, interpretes);
     }
+    
+    @Override
+    public String toFile(){
+         return String.format("Caminho: %s \n"
+                + "Titulo: %s \n"
+                + "Descrição: %s \n"
+                + "Genero: %s \n"
+                + "Idioma: %s \n"
+                + "Ano: %s \n"
+                + "Duração: %s \n"
+                + "Autores: %s \n"
+                + "Interpretes: %s \n",
+                caminho, titulo, descricao, genero, idioma, ano, duracao, autores, interpretes);
+    }
 
 }
