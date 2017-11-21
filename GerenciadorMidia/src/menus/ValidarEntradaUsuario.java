@@ -81,4 +81,39 @@ public class ValidarEntradaUsuario {
         } while (ficar);
         return numero;
     }
+
+    public static String validacaoEditar(String texto) {
+        Scanner entrada = new Scanner(System.in);
+        boolean ficar;
+        do {
+            ficar = false;
+            texto = entrada.nextLine();
+            if (!texto.equals("")) {
+                Pattern pattern = Pattern.compile("[0-9]");
+                Matcher matcher = pattern.matcher(texto);
+
+                if (matcher.find()) {
+                    ficar = true;
+                    System.out.println("Formato de texto incorreto. Por favor, Digite novamente: ");
+                }
+            }
+        } while (ficar);
+        return texto;
+
+    }
+
+    public static String editarInteiro(String texto) {
+        Scanner entrada = new Scanner(System.in);
+        boolean ficar;
+        do {
+            ficar = false;
+            texto = entrada.nextLine();
+            if (texto.contains("^[a-Z]") || texto.equals(" ")) {
+                ficar = true;
+                System.out.println("Formato de texto incorreto. Por favor, digite novamente:");
+
+            }
+        } while (ficar);
+        return texto;
+    }
 }

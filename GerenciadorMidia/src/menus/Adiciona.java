@@ -53,18 +53,18 @@ public class Adiciona {
                 String ator = null;
                 ator = ValidarEntradaUsuario.nextLine(ator);
                 atores.add(ator);
-                System.out.println("Digite S caso queira adicionar outro Ator");
-                resp = ValidarEntradaUsuario.nextLine(resp);
+                System.out.println("Digite S caso queira adicionar outro Ator ou N para pular:");
+                resp = entrada.nextLine();
             } while (resp.equalsIgnoreCase("S"));
             for (int i = 0; i < Filme.menu.size(); i++) {
                 System.out.println(Filme.menu.get(i));
                 if (i == 2) {
-                    resp = ValidarEntradaUsuario.nextDouble(resp);
+                    resp = entrada.nextLine();
                     resp = resp.replaceAll("\\.", ":");
                     variaveis.add(i, resp);
                     break;
                 }
-                resp = ValidarEntradaUsuario.nextLine(resp);
+                resp = entrada.nextLine();
                 variaveis.add(i, resp);
             }
             System.out.println("Codigo do seu filme: " + codigo);
@@ -81,25 +81,25 @@ public class Adiciona {
                 System.out.println("Digite o nome do Autor: ");
                 resp = ValidarEntradaUsuario.nextLine(resp);
                 autores.add(resp);
-                System.out.println("Digite S caso queira adicionar outro Autor");
-                resp = ValidarEntradaUsuario.nextLine(resp);
+                System.out.println("Digite S caso queira adicionar outro Autor ou N para pular:");
+                resp = entrada.nextLine();
             } while (resp.equalsIgnoreCase("S"));
             do {
                 System.out.println("Digite o nome do Interprete: ");
-                resp = ValidarEntradaUsuario.nextLine(resp);
+                resp = entrada.nextLine();
                 interpretes.add(resp);
-                System.out.println("Digite S caso queira adicionar outro Interprete");
-                resp = ValidarEntradaUsuario.nextLine(resp);
+                System.out.println("Digite S caso queira adicionar outro Interprete ou N para pular:");
+                resp = entrada.nextLine();
             } while (resp.equalsIgnoreCase("S"));
             for (int i = 0; i < Musica.menu.size(); i++) {
                 System.out.println(Musica.menu.get(i));
                 if (i == 1) {
-                    resp = ValidarEntradaUsuario.nextDouble(resp);
+                    resp = entrada.nextLine();
                     resp = resp.replaceAll("\\.", ":");
                     variaveis.add(i, resp);
                     break;
                 }
-                resp = ValidarEntradaUsuario.nextLine(resp);
+                resp = entrada.nextLine();
                 variaveis.add(i, resp);
             }
             System.out.println("Codigo da sua musica: " + codigo);
@@ -116,15 +116,15 @@ public class Adiciona {
                 System.out.println("Digite o nome do Autor: ");
                 resp = ValidarEntradaUsuario.nextLine(resp);
                 autores.add(resp);
-                System.out.println("Digite S caso queira adicionar outro Autor");
-                resp = ValidarEntradaUsuario.nextLine(resp);
+                System.out.println("Digite S caso queira adicionar outro Autor ou N para pular:");
+                resp = entrada.nextLine();
             } while (resp.equalsIgnoreCase("S"));
             do {
                 System.out.println("Digite o nome do Instrumento: ");
-                resp = ValidarEntradaUsuario.nextLine(resp);
+                resp = entrada.nextLine();
                 instrumentos.add(resp);
-                System.out.println("Digite S caso queira adicionar outro Instrumento");
-                resp = ValidarEntradaUsuario.nextLine(resp);
+                System.out.println("Digite S caso queira adicionar outro Instrumento ou N para pular:");
+                resp = entrada.nextLine();
             } while (resp.equalsIgnoreCase("S"));
             System.out.println("Codigo da sua partitura: " + codigo);
             caminho = new java.io.File(".").getAbsolutePath() + titulo;

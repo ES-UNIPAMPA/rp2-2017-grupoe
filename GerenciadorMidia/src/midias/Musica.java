@@ -14,7 +14,7 @@ public class Musica extends Midia {
     private String idioma;
     private List<String> interpretes;
     private List<String> autores;
-    public static List<String> menu = new ArrayList(Arrays.asList("Digite o idioma da Música: ", "Digite a duração do filme: "));
+    public static List<String> menu = new ArrayList(Arrays.asList("Digite o idioma da Música: ", "Digite a duração da Música: "));
     public static List<String> variaveis = new ArrayList();
 
     public Musica(String codigo, String caminho, String titulo, String descricao, String genero, List autores, String ano, String duracao, List interprete, String idioma) {
