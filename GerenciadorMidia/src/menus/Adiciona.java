@@ -1,4 +1,3 @@
-
 package menus;
 
 import gerenciadores.GMidia;
@@ -15,8 +14,8 @@ import midias.Partitura;
  * @author Rafael
  */
 public class Adiciona {
-    
-     /**
+
+    /**
      * Método para adicionar uma nova midia
      *
      * @param tipo
@@ -59,12 +58,12 @@ public class Adiciona {
             for (int i = 0; i < Filme.menu.size(); i++) {
                 System.out.println(Filme.menu.get(i));
                 if (i == 2) {
-                    resp = entrada.nextLine();
+                    resp = ValidarEntradaUsuario.nextDouble(resp);
                     resp = resp.replaceAll("\\.", ":");
                     variaveis.add(i, resp);
                     break;
                 }
-                resp = entrada.nextLine();
+                resp = ValidarEntradaUsuario.nextLine(resp);
                 variaveis.add(i, resp);
             }
             System.out.println("Codigo do seu filme: " + codigo);
@@ -86,20 +85,20 @@ public class Adiciona {
             } while (resp.equalsIgnoreCase("S"));
             do {
                 System.out.println("Digite o nome do Interprete: ");
-                resp = entrada.nextLine();
+                resp = ValidarEntradaUsuario.nextLine(resp);
                 interpretes.add(resp);
                 System.out.println("Digite S caso queira adicionar outro Interprete ou N para pular:");
-                resp = entrada.nextLine();
+                resp = ValidarEntradaUsuario.nextLine(resp);
             } while (resp.equalsIgnoreCase("S"));
             for (int i = 0; i < Musica.menu.size(); i++) {
                 System.out.println(Musica.menu.get(i));
                 if (i == 1) {
-                    resp = entrada.nextLine();
+                    resp = ValidarEntradaUsuario.nextDouble(resp);
                     resp = resp.replaceAll("\\.", ":");
                     variaveis.add(i, resp);
                     break;
                 }
-                resp = entrada.nextLine();
+                resp = ValidarEntradaUsuario.nextLine(resp);
                 variaveis.add(i, resp);
             }
             System.out.println("Codigo da sua musica: " + codigo);
@@ -121,7 +120,7 @@ public class Adiciona {
             } while (resp.equalsIgnoreCase("S"));
             do {
                 System.out.println("Digite o nome do Instrumento: ");
-                resp = entrada.nextLine();
+                resp = ValidarEntradaUsuario.nextLine(resp);
                 instrumentos.add(resp);
                 System.out.println("Digite S caso queira adicionar outro Instrumento ou N para pular:");
                 resp = entrada.nextLine();
@@ -137,5 +136,5 @@ public class Adiciona {
 
         return true;
     }
-    
+
 }
