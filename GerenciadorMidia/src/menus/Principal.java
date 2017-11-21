@@ -4,10 +4,12 @@ import java.util.Scanner;
 
 public class Principal {
 
-    MenuMidias menuMidias = new MenuMidias();
+    MenuDaMusica musica = new MenuDaMusica();
+    MenuFilme menuFilme = new MenuFilme();
+    MenuPartitura menuPartitura = new MenuPartitura();
 
     public void Menu() {
-        String opcao=null;
+        int opcao;
         Scanner entrada = new Scanner(System.in);
         do {
             System.out.println("***Banco de Midias***\n"
@@ -17,31 +19,31 @@ public class Principal {
             System.out.println("3- Partituras");
             System.out.println("0- Sair");
             System.out.println("Digite a opção de mídia desejada:");
-            opcao = ValidarEntradaUsuario.nextInt(opcao);
+            opcao = entrada.nextInt();
             switch (opcao) {
                 /**
                  * dependendo do caso, seleciona a midia e vai para o primeiro
                  * menu de interação referente a ela.
                  */
-                case "1":
-                    menuMidias.menu("Musica");
+                case 1:
+                    musica.menuMusica();
                     break;
-                case "2":
-                    menuMidias.menu("Filme");
+                case 2:
+                    menuFilme.filme();
                     break;
-                case "3":
-                    menuMidias.menu("Partitura");
+                case 3:
+                    menuPartitura.partitura();
                     break;
-                case "0":
+                case 0:
                     System.out.println("Até logo!");
                     break;
                 default:
-                    System.out.println("\nOpção inválida!\n");
+                    System.out.println("Opção inválida!");
                     break;
 
             }
 
-        } while (!opcao.equalsIgnoreCase("0"));
+        } while (opcao != 0);
 
     }
 

@@ -1,52 +1,45 @@
 package midias;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class Partitura extends Midia {
 
-    private List<String> instrumentos;
-    private List<String> autores;
-    //public static List<String> menu = new ArrayList(Arrays.asList("Digite um instrumento: ", "Digite o nome do diretor do filme: ", "Digite a duração do filme: "));
-    //public static List<String> variaveis = new ArrayList();
+    private String ano;
+    private String autores;
+    private String genero;
+    private String instrumentos;
 
-
-    public Partitura( String codigo, String caminho, String titulo, String descricao, List instrumentos, String ano, List autores, String genero) {
-        super( codigo, caminho, titulo, descricao, genero, ano);
-        this.instrumentos = instrumentos;
+    public Partitura(String caminho, String titulo, String descricao, String ano, String autores, String genero, String instrumentos) {
+        super(caminho, titulo, descricao);
+        this.ano = ano;
         this.autores = autores;
-    }
-
-        /**
-     * @return the instrumentos
-     */
-    public List<String> getInstrumentos() {
-        return instrumentos;
-    }
-
-    /**
-     * @param instrumentos the instrumentos to set
-     */
-    public void setInstrumentos(List<String> instrumentos) {
+        this.genero = genero;
         this.instrumentos = instrumentos;
     }
 
-    /**
-     * @return the autores
-     */
-    public List<String> getAutores() {
+    public String getAutores() {
         return autores;
     }
 
-    /**
-     * @param autores the autores to set
-     */
-    public void setAutores(List<String> autores) {
+    public void setAutores(String autores) {
         this.autores = autores;
     }
-    
-        /**
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getAno() {
+        return ano;
+    }
+
+    public void setAno(String ano) {
+        this.ano = ano;
+    }
+
+    /**
      * Método toString para representar os atributos do objeto
      *
      * @return retorna uma String com todas as informações
@@ -55,23 +48,27 @@ public class Partitura extends Midia {
     public String toString() {
         return String.format("Caminho: %s \n"
                 + "Titulo da partitura: %s \n"
-                + "Descrição da Partitura: %s \n"                  
+                + "Descrição da Partitura: %s \n"
+                + "Instrumento (os): %s \n"
+                + "Autor da Partitura: %s \n"
                 + "Ano de Crição da Partitura: %s \n"
-                + "Gênero da Partitura: %s \n "
-                + "Autores da Partitura: %s \n"
-                + "Instrumentos: %s \n",
-                caminho, titulo, descricao, ano, genero, autores, instrumentos);
+                + "Gênero da Partitura: %s \n ",
+                caminho, titulo, descricao, autores, ano, genero);
     }
-    
-    public String toFile(){
-                return String.format("Caminho: %s \n"
-                + "Titulo da partitura: %s \n"
-                + "Descrição da Partitura: %s \n"                  
-                + "Ano de Crição da Partitura: %s \n"
-                + "Gênero da Partitura: %s \n "
-                + "Autores da Partitura: %s \n"
-                + "Instrumentos: %s \n",
-                caminho, titulo, descricao, ano, genero, autores, instrumentos);
+
+    @Override
+    public String toFile() {
+        String dados;
+        dados = this.caminho + "\n" + titulo + "\n" + descricao + "\n" + autores + "\n" + ano + "\n" + genero + "\n" + this.instrumentos;
+        return dados;
+    }
+
+    public String getInstrumentos() {
+        return instrumentos;
+    }
+
+    public void setInstrumentos(String instrumentos) {
+        this.instrumentos = instrumentos;
     }
 
 }

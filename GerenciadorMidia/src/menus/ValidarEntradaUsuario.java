@@ -82,19 +82,22 @@ public class ValidarEntradaUsuario {
         return numero;
     }
 
-    public static String validacaoEditar(String texto) {
-        Scanner entrada = new Scanner(System.in);
+    public static String entradaEnterTexto(String texto) {
         boolean ficar;
         do {
+            Scanner e = new Scanner(System.in);
             ficar = false;
-            texto = entrada.nextLine();
-            if (!texto.equals("")) {
+            texto = e.nextLine();
+            //texto = texto.trim();
+            if (texto == null || texto.equals(" ")) {
+                ficar = true;
+                System.out.println("Formato incorreto. Digite novamente: ");
+            } else {
                 Pattern pattern = Pattern.compile("[0-9]");
                 Matcher matcher = pattern.matcher(texto);
-
                 if (matcher.find()) {
                     ficar = true;
-                    System.out.println("Formato de texto incorreto. Por favor, Digite novamente: ");
+                    System.out.println("Formato incorreto. Digite novamente: ");
                 }
             }
         } while (ficar);
@@ -102,16 +105,17 @@ public class ValidarEntradaUsuario {
 
     }
 
-    public static String editarInteiro(String texto) {
-        Scanner entrada = new Scanner(System.in);
+    public static String entradaEnterNumero(String texto) {
+        Scanner e = new Scanner(System.in);
         boolean ficar;
         do {
             ficar = false;
-            texto = entrada.nextLine();
-            if (texto.contains("^[a-Z]") || texto.equals(" ")) {
+            texto = e.nextLine();
+            Pattern pattern = Pattern.compile("[a-z, A-Z]");
+            Matcher matcher = pattern.matcher(texto);
+            if (matcher.find() || texto.equals(" ")) {
                 ficar = true;
-                System.out.println("Formato de texto incorreto. Por favor, digite novamente:");
-
+                System.out.println("O campo não pode ser em branco ou conter letras. Digite novamente: ");
             }
         } while (ficar);
         return texto;
