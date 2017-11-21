@@ -18,10 +18,15 @@ public class Consulta {
     public boolean consultarMidia(GMidia midia) {
         Scanner entrada = new Scanner(System.in);
         System.out.println("Digite o titulo ou o codigo da Midia que deseja exibir:");
-        String titulo = entrada.nextLine(); 
+        String titulo = entrada.nextLine();
+        if (midia.exibir(titulo) == null) {
+            System.out.println("Midia não econtrada!! ");
+            return false;
+        } else {
             System.out.println("Foram encontrados os seguintes resultados: \n");
             midia.exibir(titulo);
             return true;
+        }
     }
 
 }

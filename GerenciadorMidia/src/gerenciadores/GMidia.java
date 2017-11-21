@@ -39,12 +39,14 @@ public class GMidia extends gerPrincipal {
      * @return retorna a mdia desejada caso o codigo exista. Caso contrário
      * retorna null
      */
+    @Override
     public Midia exibir(String dado) {
         for (int i = 0; i < listMidia.size(); i++) {
             Midia mostra = listMidia.get(i);
             //confere se o dado é igual ao titulo ou igual ao codigo
             if (mostra.getTitulo().equals(dado) || mostra.getCodigo().equals(dado)) {
                 System.out.println(mostra);
+                return mostra;
             } 
         }
         return null;
