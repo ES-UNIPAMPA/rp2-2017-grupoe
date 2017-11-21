@@ -19,7 +19,7 @@ public class Consulta {
         Scanner entrada = new Scanner(System.in);
         System.out.println("Digite o titulo ou o codigo da Midia que deseja exibir:");
         String titulo = entrada.nextLine();
-        if (midia.exibir(titulo) == null) {
+        if (titulo == null) {
             System.out.println("Midia não econtrada!! ");
             return false;
         } else {
