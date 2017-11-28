@@ -56,8 +56,9 @@ public class Filme extends Midia {
     /**
      * @return the ano
      */
-    public String getAno() {
-        return ano;
+    public int getAno() {
+        int anoint = Integer.parseInt(this.ano);
+        return anoint;
     }
 
     /**
@@ -128,5 +129,15 @@ public class Filme extends Midia {
         String dados;
         dados = caminho + "\n" + titulo + "\n" + descricao + "\n" + genero + "\n" + idioma + "\n" + diretor + "\n" + ano + "\n" + duracao + "\n" + this.atores + "\n" + this.local;
         return dados;
+    }
+
+    public int compareTo(Filme outro) {
+        if (getAno() < outro.getAno()) {
+            return -1;
+        } else if (getAno() > outro.getAno()) {
+            return +1;
+        } else {
+            return 0;
+        }
     }
 }

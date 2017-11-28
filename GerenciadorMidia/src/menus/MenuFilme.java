@@ -28,6 +28,7 @@ public class MenuFilme implements IMenu {
             System.out.println("2- Editar filme.");
             System.out.println("3- consultar filme.");
             System.out.println("4- Excluir filme.");
+            System.out.println("5- Ordenar filmes.");
             System.out.println("0- Voltar ao menu principal.");
             System.out.println("Digite a opção desejada:");
             opcao = entrada.nextInt();
@@ -45,7 +46,7 @@ public class MenuFilme implements IMenu {
                     excluirMidia();
                     break;
                 case 5:
-                    break;
+                    ordenarMidia();
                 default:
                     System.out.println("\nA Opção inserida é inválida. Digite novamente, por favor:");
             }
@@ -225,6 +226,12 @@ public class MenuFilme implements IMenu {
         }
         System.out.println("\nFilme editado com sucesso!!\n");
         return false;
+    }
+    
+    public void ordenarMidia(){
+        gerenciadorFilme.ordenarFilmes(gerenciadorFilme.getListMidias());
+       // System.out.println(gerenciadorFilme.getListMidias().toString());
+
     }
 
 }

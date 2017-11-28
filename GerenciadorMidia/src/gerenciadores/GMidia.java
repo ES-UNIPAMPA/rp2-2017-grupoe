@@ -38,7 +38,7 @@ public class GMidia extends gerPrincipal {
      */
     @Override
     public boolean adicionar(Midia midia) {
-        listMidias.add(midia);
+        getListMidias().add(midia);
         return salvar();
     }
 
@@ -52,7 +52,7 @@ public class GMidia extends gerPrincipal {
      */
     @Override
     public Midia consulta(String titulo, String codigo) {
-        for (Midia midia : listMidias) {
+        for (Midia midia : getListMidias()) {
             if (midia.getTitulo().equalsIgnoreCase(titulo) || midia.getCodigo().equalsIgnoreCase(codigo)) {
                 salvar();
                 return midia;
@@ -70,7 +70,7 @@ public class GMidia extends gerPrincipal {
      */
     @Override
     public Midia exibir(String nome) {
-        for (Midia midia : listMidias) {
+        for (Midia midia : getListMidias()) {
             if (midia.getTitulo().equalsIgnoreCase(nome)) {
                 salvar();
                 return midia;
@@ -89,13 +89,20 @@ public class GMidia extends gerPrincipal {
      */
     @Override
     public boolean edicao(String titulo, Midia novaMidia) {
-        for (int i = 0; i < listMidias.size(); i++) {
-            if (listMidias.get(i).equalsTitulo(titulo)) {
-                listMidias.set(i, novaMidia);
+        for (int i = 0; i < getListMidias().size(); i++) {
+            if (getListMidias().get(i).equalsTitulo(titulo)) {
+                getListMidias().set(i, novaMidia);
                 return true;
             }
         }
         return false;
+    }
+    
+      /**
+     * @return the listMidias
+     */
+    public List<Midia> getListMidias() {
+        return listMidias;
     }
 
     /**
@@ -108,9 +115,9 @@ public class GMidia extends gerPrincipal {
      */
     @Override
     public boolean exclusao(String titulo, String codigo) {
-        for (Midia midia : listMidias) {
+        for (Midia midia : getListMidias()) {
             if (midia.getTitulo().equalsIgnoreCase(titulo) || midia.getCodigo().equalsIgnoreCase(codigo)) {
-                listMidias.remove(midia);
+                getListMidias().remove(midia);
                 salvar();
                 return true;
             }
@@ -128,9 +135,9 @@ public class GMidia extends gerPrincipal {
         String novaLinha = System.getProperty("line.separator");
         try {
             FileWriter escreverNoArquivo = new FileWriter(new File(caminho));
-            escreverNoArquivo.write(String.valueOf(listMidias.size()));
+            escreverNoArquivo.write(String.valueOf(getListMidias().size()));
             escreverNoArquivo.write(novaLinha + novaLinha);
-            for (Midia midia : listMidias) {
+            for (Midia midia : getListMidias()) {
                 escreverNoArquivo.write(midia.toFile());
                 escreverNoArquivo.write(novaLinha + " " + novaLinha);
             }
@@ -231,4 +238,21 @@ public class GMidia extends gerPrincipal {
         adicionar(novo);
     }
 
+    public Filme ordenarFilmes(List filmes) {
+        int tamanho = filmes.size();
+        for (int i = 0; i < tamanho - 1; i++) {
+            for (int j = 0; j < tamanho - 1 - i; j++) {
+                Filme auxiliar = (Filme) filmes.get(j);
+                Filme troca = (Filme) filmes.get(j+1);
+                if(auxiliar.compareTo(troca)>0) {
+                    auxiliar = (Filme) filmes.get(j);          
+                    Filme alvo = (Filme)filmes.get(j);
+                    troca = (Filme) filmes.get(j+1);
+                    alvo = troca;
+                    troca = auxiliar;                 
+                }
+            }
+        }
+        return null;
+    }
 }
