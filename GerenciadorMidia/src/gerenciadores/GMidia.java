@@ -289,4 +289,33 @@ public class GMidia extends gerPrincipal {
 
         } while (houveTroca);
     }
+
+    public void ordenarPartitura(List<Midia> partitura) {
+
+        boolean houveTroca;
+        int contador = 1;
+        Partitura temp;
+
+        do {
+            /* quando começamos a avaliar o vetor, não há trocas */
+            houveTroca = false;
+
+            for (int i = 0; i < partitura.size() - contador; i++) {
+
+                /* se o elemento i e o próximo estão na ordem trocada */
+                if (partitura.get(i).getTitulo().compareToIgnoreCase(partitura.get(i + 1).getTitulo()) >= 0) {
+                    /* troca de lugar os conteúdos deles */
+
+                    temp = (Partitura) partitura.get(i);
+                    partitura.set(i, partitura.get(i + 1));
+                    partitura.set(i + 1, temp);
+
+                    /* marca que houve troca */
+                    houveTroca = true;
+                }
+            }
+            contador++;
+        } while (houveTroca);
+
+    }
 }

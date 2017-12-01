@@ -67,9 +67,15 @@ public class Partitura extends Midia {
 
     @Override
     public String toFile() {
-        String dados;
-        dados = codigo + "\n" + this.caminho + "\n" + this.titulo + "\n" + this.descricao + "\n" + this.autores + "\n" + this.ano + "\n" + this.genero + "\n" + this.instrumentos;
-        return dados;
+        return String.format("CÓDIGO: %s \n"
+                + "Caminho: %s \n"
+                + "Titulo da partitura: %s \n"
+                + "Descrição da Partitura: %s \n"
+                + "Instrumento (os): %s \n"
+                + "Autor da Partitura: %s \n"
+                + "Ano de Crição da Partitura: %s \n"
+                + "Gênero da Partitura: %s \n ",
+                codigo, caminho, titulo, descricao, instrumentos, autores, ano, genero);
     }
 
 }
