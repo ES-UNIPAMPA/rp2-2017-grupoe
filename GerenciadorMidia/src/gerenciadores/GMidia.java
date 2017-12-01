@@ -38,7 +38,7 @@ public class GMidia extends gerPrincipal {
      */
     @Override
     public boolean adicionar(Midia midia) {
-        getListMidias().add(midia);
+        listMidias.add(midia);
         return salvar();
     }
 
@@ -51,14 +51,15 @@ public class GMidia extends gerPrincipal {
      * retorna null
      */
     @Override
-    public Midia consulta(String titulo, String codigo) {
+    public List consulta(String titulo) {
+        ArrayList<Midia> listaR = new ArrayList<>();
         for (Midia midia : getListMidias()) {
-            if (midia.getTitulo().equalsIgnoreCase(titulo) || midia.getCodigo().equalsIgnoreCase(codigo)) {
-                salvar();
-                return midia;
+            if (midia.getTitulo().equalsIgnoreCase(titulo)) {
+                listaR.add(midia);
+
             }
         }
-        return null;
+        return listaR;
     }
 
     /**
@@ -88,17 +89,16 @@ public class GMidia extends gerPrincipal {
      * contrário retornara false
      */
     @Override
-    public boolean edicao(String titulo, Midia novaMidia) {
-        for (int i = 0; i < getListMidias().size(); i++) {
-            if (getListMidias().get(i).equalsTitulo(titulo)) {
-                getListMidias().set(i, novaMidia);
-                return true;
+    public boolean edicao(Midia novaMidia) {
+        for (int i = 0; i < listMidias.size(); i++) {
+            if (listMidias.get(i).equals(novaMidia)) {
+                listMidias.set(i, novaMidia);
             }
         }
-        return false;
+        return salvar();
     }
-    
-      /**
+
+    /**
      * @return the listMidias
      */
     public List<Midia> getListMidias() {
@@ -108,18 +108,16 @@ public class GMidia extends gerPrincipal {
     /**
      * Método para excluir uma midia
      *
-     * @param titulo é recebido para identificar a midia que ira ser excluida.
-     * @param codigo
+     * @param midias
      * @return Vai retornar verdadeiro caso a remoção seja realizada com
      * sucesso. Caso contrário retornara false
      */
     @Override
-    public boolean exclusao(String titulo, String codigo) {
-        for (Midia midia : getListMidias()) {
-            if (midia.getTitulo().equalsIgnoreCase(titulo) || midia.getCodigo().equalsIgnoreCase(codigo)) {
-                getListMidias().remove(midia);
-                salvar();
-                return true;
+    public boolean exclusao(Midia midias) {
+        for (Midia midia : listMidias) {
+            if (midia.equals(midias)) {
+                listMidias.remove(midia);
+                return salvar();
             }
 
         }
@@ -207,8 +205,10 @@ public class GMidia extends gerPrincipal {
                 dados.get(6),
                 dados.get(7),
                 dados.get(8),
-                dados.get(9));
-        adicionar(novo);
+                dados.get(9),
+                dados.get(10));
+        listMidias.add(novo);
+        dados.clear();
 
     }
 
@@ -221,8 +221,10 @@ public class GMidia extends gerPrincipal {
                 dados.get(5),
                 dados.get(6),
                 dados.get(7),
-                dados.get(8));
-        adicionar(musica);
+                dados.get(8),
+                dados.get(9));
+        listMidias.add(musica);
+        dados.clear();
 
     }
 
@@ -233,9 +235,10 @@ public class GMidia extends gerPrincipal {
                 dados.get(3),
                 dados.get(4),
                 dados.get(5),
-                dados.get(6));
-
-        adicionar(novo);
+                dados.get(6),
+                dados.get(7));
+        listMidias.add(novo);
+        dados.clear();
     }
 
     public Filme ordenarFilmes(List filmes) {
@@ -243,16 +246,47 @@ public class GMidia extends gerPrincipal {
         for (int i = 0; i < tamanho - 1; i++) {
             for (int j = 0; j < tamanho - 1 - i; j++) {
                 Filme auxiliar = (Filme) filmes.get(j);
-                Filme troca = (Filme) filmes.get(j+1);
-                if(auxiliar.compareTo(troca)>0) {
-                    auxiliar = (Filme) filmes.get(j);          
-                    Filme alvo = (Filme)filmes.get(j);
-                    troca = (Filme) filmes.get(j+1);
+                Filme troca = (Filme) filmes.get(j + 1);
+                if (auxiliar.compareTo(troca) > 0) {
+                    auxiliar = (Filme) filmes.get(j);
+                    Filme alvo = (Filme) filmes.get(j);
+                    troca = (Filme) filmes.get(j + 1);
                     alvo = troca;
-                    troca = auxiliar;                 
+                    troca = auxiliar;
                 }
             }
         }
         return null;
+    }
+
+    public void ordenarMusica(List listaMusica) {
+        boolean houveTroca;
+        do {
+            houveTroca = false;
+            for (int i = 0; i < listaMusica.size() - 2; i++) {
+                Musica musica = (Musica) listaMusica.get(i);
+                Musica musica2 = (Musica) listaMusica.get(i + 1);
+                if (musica.compareTo(musica2) > 0) {
+                    Musica aux = (Musica) listaMusica.get(i);
+                    listaMusica.set(i, listaMusica.get(i + 1));
+                    listaMusica.set(i + 1, aux);
+                    houveTroca = true;
+                }
+            }
+            if (!houveTroca) {
+                break;
+            }
+            for (int i = listaMusica.size() - 2; i >= 0; i--) {
+                Musica musica = (Musica) listaMusica.get(i);
+                Musica musica2 = (Musica) listaMusica.get(i + 1);
+                if (musica.compareTo(musica2) > 0) {
+                    Musica aux = (Musica) listaMusica.get(i);
+                    listaMusica.set(i, listaMusica.get(i + 1));
+                    listaMusica.set(i + 1, aux);
+                    houveTroca = true;
+                }
+            }
+
+        } while (houveTroca);
     }
 }

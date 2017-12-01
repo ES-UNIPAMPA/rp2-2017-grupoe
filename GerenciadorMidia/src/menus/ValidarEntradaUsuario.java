@@ -91,13 +91,13 @@ public class ValidarEntradaUsuario {
             //texto = texto.trim();
             if (texto == null || texto.equals(" ")) {
                 ficar = true;
-                System.out.println("Formato incorreto. Digite novamente: ");
+                System.out.println("Formato incorreto.Por favor, Digite novamente: ");
             } else {
                 Pattern pattern = Pattern.compile("[0-9]");
                 Matcher matcher = pattern.matcher(texto);
                 if (matcher.find()) {
                     ficar = true;
-                    System.out.println("Formato incorreto. Digite novamente: ");
+                    System.out.println("Formato incorreto.Por favor, Digite novamente: ");
                 }
             }
         } while (ficar);
@@ -115,7 +115,7 @@ public class ValidarEntradaUsuario {
             Matcher matcher = pattern.matcher(texto);
             if (matcher.find() || texto.equals(" ")) {
                 ficar = true;
-                System.out.println("O campo não pode ser em branco ou conter letras. Digite novamente: ");
+                System.out.println("Formato incorreto. Por favor, Digite novamente: ");
             }
         } while (ficar);
         return texto;

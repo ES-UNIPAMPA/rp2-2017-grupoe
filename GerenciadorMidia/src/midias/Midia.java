@@ -1,18 +1,19 @@
 package midias;
 
+import java.util.Objects;
+
 public class Midia {
 
     protected String caminho;
     protected String titulo;
     protected String descricao;
-    private String codigo;
+    protected String codigo;
 
-    public Midia(String caminho, String titulo, String descricao) {
-
+    public Midia(String codigo, String caminho, String titulo, String descricao) {
         this.caminho = caminho;
         this.titulo = titulo;
         this.descricao = descricao;
-        //this.codigo = codigo;
+        this.codigo = codigo;
     }
 
     public String getCaminho() {
@@ -58,5 +59,38 @@ public class Midia {
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Midia other = (Midia) obj;
+        if (!Objects.equals(this.caminho, other.caminho)) {
+            return false;
+        }
+        if (!Objects.equals(this.titulo, other.titulo)) {
+            return false;
+        }
+        if (!Objects.equals(this.descricao, other.descricao)) {
+            return false;
+        }
+        if (!Objects.equals(this.codigo, other.codigo)) {
+            return false;
+        }
+        return true;
     }
 }

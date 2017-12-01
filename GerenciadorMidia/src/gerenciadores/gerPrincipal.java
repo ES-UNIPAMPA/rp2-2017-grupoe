@@ -8,17 +8,17 @@ import midias.*;
  * Classe abstrata com o métodos para os gerenciadores.
  */
 public abstract class gerPrincipal {
-    protected static List <Midia> listMidia;
+    //protected static List <Midia> listMidia;
     
     public abstract boolean adicionar(Midia midia);
     
-    public abstract Midia consulta(String codigo, String nome);
+    public abstract List consulta( String nome);
     
     public abstract void classifica(ArrayList<Midia> midia);
     
-    public abstract boolean edicao(String codigo, Midia midia);
+    public abstract boolean edicao(Midia midia);
     
-    public abstract boolean exclusao(String nome, String codigo);
+    public abstract boolean exclusao(Midia midias);
     
     public abstract Midia exibir(String nome);
  
