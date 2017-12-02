@@ -57,16 +57,25 @@ public class Musica extends Midia implements Comparable<Musica> {
         this.idioma = idioma;
     }
 
-    /**
-     * Método toString para representar os atributos do objeto
+     /**
+     * Método toString para representar organizado os dados
      *
-     * @return retorna uma String com todas as informações
+     * @return retorna uma String com todas as informações em ordem
      */
+    //TO STRING
     @Override
     public String toString() {
-        String dados;
-        dados = "CÓDIGO DA SUA MUSICA: " + super.codigo + "\n" + "Caminho do Arquivo: " + this.caminho + "\n" + "Título da Música: " + this.titulo + "\n" + "Autores da Música: " + "Ano: " + this.ano + "\n" + this.autores + "\n" + "Descrição da Música: " + this.descricao + "\n" + "Genero da Música: " + this.genero + "\n" + "Idioma da Música: " + this.idioma + "\n" + "Interprete: " + this.interprete + "\n" + "Duração da Música:" + this.duracao;
-        return dados;
+        return String.format("CÓDIGO: %s \n"
+                + "Caminho: %s \n"
+                + "Titulo: %s \n"
+                + "Autores: %s \n"
+                + "Descrição: %s \n"
+                + "Genero: %s \n"
+                + "Idioma: %s \n"
+                + "Iterprete:  %s \n"
+                + "Ano: %s \n"
+                + "Duração: %s \n",
+                super.codigo, caminho, titulo, autores, descricao, genero, idioma, interprete, ano, duracao);
     }
 
     public String getAutores() {
@@ -85,7 +94,6 @@ public class Musica extends Midia implements Comparable<Musica> {
         this.genero = genero;
     }
 
-    //codigos, caminho, titulo, descricao, genero, autores, ano, duracao, interpretes, idioma
     @Override
     public String toFile() {
         String dados;
