@@ -160,6 +160,8 @@ public class MenuFilme implements IMenu {
         System.out.println("\nDigite o titulo do filme que deseja consultar:");
         consulta = ValidarEntradaUsuario.nextLine(consulta);
         listTemp = gerenciadorFilme.consulta(consulta);
+        listTemp = gerenciadorFilme.consulta(consulta);
+        gerenciadorFilme.ordenarFilmes(listTemp); 
         if (listTemp.isEmpty()) {
             System.out.println("Filme inexistente.");
         }

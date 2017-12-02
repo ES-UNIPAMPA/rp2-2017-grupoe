@@ -248,11 +248,9 @@ public class GMidia extends gerPrincipal {
                 Filme auxiliar = (Filme) filmes.get(j);
                 Filme troca = (Filme) filmes.get(j + 1);
                 if (auxiliar.compareTo(troca) > 0) {
-                    auxiliar = (Filme) filmes.get(j);
-                    Filme alvo = (Filme) filmes.get(j);
-                    troca = (Filme) filmes.get(j + 1);
-                    alvo = troca;
-                    troca = auxiliar;
+                    Filme aux = (Filme) filmes.get(j);
+                    filmes.set(i, filmes.get(j + 1));
+                    filmes.set(i + 1, aux);
                 }
             }
         }
