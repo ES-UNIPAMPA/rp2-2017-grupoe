@@ -45,10 +45,8 @@ public class GMidia extends gerPrincipal {
     /**
      * Método para consultar uma midia
      *
-     * @param titulo
-     * @param codigo
-     * @return retorna a mdia desejada caso o codigo exista. Caso contrário
-     * retorna null
+     * @param titulo para identificar a midia.
+     * @return retorna uma list com todas as midias contendo o titulo passado.
      */
     @Override
     public List consulta(String titulo) {
@@ -83,9 +81,8 @@ public class GMidia extends gerPrincipal {
     /**
      * Método para editar uma midia
      *
-     * @param titulo
      * @param novaMidia é recebido para editar a midia existente
-     * @return Caso a edição seja realizado com sucesso, retornara true. Caso
+     * @return Caso a edição seja salva com sucesso, retornara true. Caso
      * contrário retornara false
      */
     @Override
@@ -99,7 +96,7 @@ public class GMidia extends gerPrincipal {
     }
 
     /**
-     * @return the listMidias
+     * @return retorna uma list com todas as midias
      */
     public List<Midia> getListMidias() {
         return listMidias;
@@ -108,7 +105,7 @@ public class GMidia extends gerPrincipal {
     /**
      * Método para excluir uma midia
      *
-     * @param midias
+     * @param midias recebido para excluir a midia informada
      * @return Vai retornar verdadeiro caso a remoção seja realizada com
      * sucesso. Caso contrário retornara false
      */
@@ -129,6 +126,13 @@ public class GMidia extends gerPrincipal {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     * Método para salvar uma midia
+     *
+     * @return Retornara true caso a midia seja salva com sucesso. Caso
+     * contrário retorna true.
+     */
+
     public boolean salvar() {
         String novaLinha = System.getProperty("line.separator");
         try {
@@ -146,6 +150,12 @@ public class GMidia extends gerPrincipal {
         return true;
     }
 
+    /**
+     * Método para carregar uma midia.
+     *
+     * @return Retorna verdadeiro caso o carregamento seja realizado com
+     * sucesso. Caso contrário retornara falso.
+     */
     public boolean carregar() {
         File arquivo;
         arquivo = new File(caminho);
@@ -175,7 +185,11 @@ public class GMidia extends gerPrincipal {
         }
         return true;
     }
-
+/**
+ * Método que identifica o nome da midia.
+ * @param dados contendo os dados do arquivo txt.
+ * @param arquivo contendo o nome do arquivo.
+ */
     private void montarMidia(ArrayList<String> dados, File arquivo) {
 
         switch (arquivo.getName()) {
@@ -194,7 +208,10 @@ public class GMidia extends gerPrincipal {
         }
 
     }
-
+/**
+ * Método que cria o objeto filme inserindo os dados do ArrayList dados.
+ * @param dados ArrayList contendo as informações do arquivo txt.
+ */
     private void montarFilme(ArrayList<String> dados) {
         Midia novo = new Filme(dados.get(0),
                 dados.get(1),
@@ -211,7 +228,10 @@ public class GMidia extends gerPrincipal {
         dados.clear();
 
     }
-
+/**
+ * Método que cria o objeto música inserindo os dados do ArrayList dados.
+ * @param dados ArrayList contendo as informações do arquivo txt.
+ */
     private void montarMusica(ArrayList<String> dados) {
         Midia musica = new Musica(dados.get(0),
                 dados.get(1),
@@ -227,7 +247,10 @@ public class GMidia extends gerPrincipal {
         dados.clear();
 
     }
-
+/**
+ *Método que cria o objeto partitura inserindo os dados do ArrayList dados.
+ *@param dados ArrayList contendo as informações do arquivo txt.
+ */
     private void montarPartitura(ArrayList<String> dados) {
         Midia novo = new Partitura(dados.get(0),
                 dados.get(1),
@@ -240,7 +263,11 @@ public class GMidia extends gerPrincipal {
         listMidias.add(novo);
         dados.clear();
     }
-
+/**
+ * Método de ordenação do Filme
+ * @param filmes recebe uma list com as midias
+ * @return 
+ */
     public Filme ordenarFilmes(List filmes) {
         int tamanho = filmes.size();
         for (int i = 0; i < tamanho - 1; i++) {
@@ -256,7 +283,10 @@ public class GMidia extends gerPrincipal {
         }
         return null;
     }
-
+/**
+ * Método de ordenação da música
+ * @param listaMusica recebe uma lista com as midias. 
+ */
     public void ordenarMusica(List listaMusica) {
         boolean houveTroca;
         do {
@@ -287,7 +317,10 @@ public class GMidia extends gerPrincipal {
 
         } while (houveTroca);
     }
-
+/**
+ * Método de ordenação da partitura.
+ * @param partitura recebe uma list com as midias. 
+ */
     public void ordenarPartitura(List<Midia> partitura) {
 
         boolean houveTroca;

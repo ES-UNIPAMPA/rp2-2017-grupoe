@@ -99,12 +99,12 @@ public class Filme extends Midia {
     public String toString() {
         return String.format("CÓDIGO: %s \n"
                 + "Caminho: %s \n"
-                + "Titulo : %s \n"
-                + "Descrição : %s \n"
+                + "Titulo: %s \n"
+                + "Descrição: %s \n"
                 + "Genero: %s \n"
                 + "Idioma: %s \n"
                 + "Diretor:  %s \n"
-                + "Ano: %s \n "
+                + "Ano: %s \n"
                 + "Duração: %s \n"
                 + "Atores: %s \n",
                 super.codigo, caminho, titulo, descricao, genero, idioma, diretor, ano, duracao, atores);

@@ -59,7 +59,9 @@ public class MenuFilme implements IMenu {
      * adiciona na lista de Midias
      */
     @Override
-
+    /**
+     * Método para adicionar uma midia.
+     */
     public boolean adicionarMidia() {
         Random gerador = new Random();
         Scanner entrada = new Scanner(System.in);
@@ -97,6 +99,7 @@ public class MenuFilme implements IMenu {
     }
 
     /**
+     * Método para excluir uma midia.
      *
      * @return confere se o filme existe, se sim, envia ele para o metodo
      * exclusao
@@ -152,6 +155,9 @@ public class MenuFilme implements IMenu {
         return false;
     }
 
+    /**
+     * Método para consultar uma midia
+     */
     @Override
     public void consultarMidia() {
         List<Midia> listTemp;
@@ -161,7 +167,7 @@ public class MenuFilme implements IMenu {
         consulta = ValidarEntradaUsuario.nextLine(consulta);
         listTemp = gerenciadorFilme.consulta(consulta);
         listTemp = gerenciadorFilme.consulta(consulta);
-        gerenciadorFilme.ordenarFilmes(listTemp); 
+        gerenciadorFilme.ordenarFilmes(listTemp);
         if (listTemp.isEmpty()) {
             System.out.println("Filme inexistente.");
         }
@@ -171,6 +177,7 @@ public class MenuFilme implements IMenu {
     }
 
     /**
+     * Método para editar uma midia
      *
      * @return cada etapa da um set nos campos preenchidos se for pressionado
      * ENTER ele pula a etapa e vai para a proxima edicao

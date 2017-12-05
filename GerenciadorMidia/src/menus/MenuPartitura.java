@@ -45,6 +45,12 @@ public class MenuPartitura implements IMenu {
         } while (opcao != 0);
     }
 
+    /**
+     * Método para adicionar uma midia
+     *
+     * @return Retorna true se uma midia foi adicionada com sucesso. Caso
+     * contrário retorna false
+     */
     @Override
     public boolean adicionarMidia() {
         String caminho, titulo = null, descricao = null, ano = null, genero = null, autores = null, instrumento = null, codigos;
@@ -74,6 +80,12 @@ public class MenuPartitura implements IMenu {
         return false;
     }
 
+    /**
+     * Método para excluir uma midia
+     *
+     * @return Retorna true caso a midia seja excluida com sucesso. Caso
+     * contrário retorna false.
+     */
     @Override
     public boolean excluirMidia() {
         List<Midia> listTemp;
@@ -120,6 +132,9 @@ public class MenuPartitura implements IMenu {
         return false;
     }
 
+    /**
+     * Método para consultar uma midia
+     */
     @Override
     public void consultarMidia() {
         List<Partitura> listTemp;
@@ -135,6 +150,12 @@ public class MenuPartitura implements IMenu {
         }
     }
 
+    /**
+     * Método para editar uma midia.
+     *
+     * @return Retorna true caso a midia seja adicionada com sucesso. Caso
+     * contrário retorna false.
+     */
     @Override
     public boolean editarMidia() {
         List<Partitura> listTemp;

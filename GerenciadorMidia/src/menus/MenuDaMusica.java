@@ -147,7 +147,6 @@ public class MenuDaMusica implements IMenu {
     /**
      * Método para consultar uma mídia
      *
-     * @return Retorna uma mídia desejada.
      */
     @Override
     public void consultarMidia() {
@@ -156,7 +155,7 @@ public class MenuDaMusica implements IMenu {
         System.out.println("Digite o titulo da Música que desejas consultar:");
         consulta = ValidarEntradaUsuario.nextLine(consulta);
         listTemp = gerenciadorMusica.consulta(consulta);
-        gerenciadorMusica.ordenarMusica(listTemp); 
+        gerenciadorMusica.ordenarMusica(listTemp);
         if (listTemp.isEmpty()) {
             System.out.println("Música inexistente!");
         }
@@ -179,81 +178,83 @@ public class MenuDaMusica implements IMenu {
         System.out.println("\nDigite o titulo da Música que deseja editar:");
         titulo = ValidarEntradaUsuario.nextLine(titulo);
         listTemp = gerenciadorMusica.consulta(titulo);
-        if (listTemp.isEmpty()) {
-            System.out.println("Música inexistente!");
-        }
-        for (Midia musica : listTemp) {
-            System.out.println(musica.toString());
-        }
-        System.out.println("ESSAS SÃO AS MÚSICAS EXISTENTES COM O TITULO INFORMADO.");
-        System.out.println("Informe o código da música que deseja editar: ");
-        codigo = ValidarEntradaUsuario.nextInt(codigo);
-        for (Musica musica : listTemp) {
-            if (musica.getCodigo().equalsIgnoreCase(codigo)) {
-                System.out.println("Tecle ENTER caso não deseje editar este item.");
-                System.out.println("Novo titulo da Música: ");
-                titulo = ValidarEntradaUsuario.entradaEnterTexto(titulo);
-                if (titulo.equals("")) {
-                } else {
-                    musica.setTitulo(titulo);
-                }
-                System.out.println("Tecle ENTER caso não deseje editar este item.");
-                System.out.println("Nova descrição da Música: ");
-                desc = ValidarEntradaUsuario.entradaEnterTexto(desc);
-                if (desc.equals("")) {
-                } else {
-                    musica.setDescricao(desc);
-                }
-                System.out.println("Tecle ENTER caso não deseje editar este item.");
-                System.out.println("Novo genero da Música: ");
-                genero = ValidarEntradaUsuario.entradaEnterTexto(genero);
-                if (genero.equals("")) {
-                } else {
-                    musica.setGenero(genero);
-                }
-                System.out.println("Tecle ENTER caso não deseje editar este item.");
-                System.out.println("Novo idioma da Música: ");
-                idioma = ValidarEntradaUsuario.entradaEnterTexto(idioma);
-                if (idioma.equals("")) {
-                } else {
-                    musica.setIdioma(idioma);
-                }
-                System.out.println("Tecle ENTER caso não deseje editar este item.");
-                System.out.println("Novo nome dos autores da Música:");
-                autores = ValidarEntradaUsuario.entradaEnterTexto(autores);
-                if (autores.equals("")) {
-                } else {
-                    musica.setAutores(autores);
-                }
-                System.out.println("Tecle ENTER caso não deseje editar este item.");
-                System.out.println("Novos nomes dos interpretes:");
-                interpretes = ValidarEntradaUsuario.entradaEnterTexto(interpretes);
-                if (interpretes.equals("")) {
-                } else {
-                    musica.setInterprete(interpretes);
-                }
-                System.out.println("Tecle ENTER caso não deseje editar este item.");
-                System.out.println("Novo ano de lançamento: ");
-                ano = ValidarEntradaUsuario.entradaEnterNumero(ano);
-                if (ano.equals("")) {
-                } else {
-                    musica.setAno(ano);
-                }
-                System.out.println("Tecle ENTER caso não deseje editar este item.");
-                System.out.println("Nova duração do filme em minutos: ");
-                duracao = ValidarEntradaUsuario.entradaEnterNumero(duracao);
-                if (duracao.equals("")) {
-                } else {
-                    musica.setDuracao(duracao);
-                }
-                if (gerenciadorMusica.edicao(musica)) {
-                    System.out.println("\nMúsica editada com sucesso!!\n");
-                    return true;
-                }
-            } else {
-                System.out.println("Código inválido. Tente novamente.");
+        if (!listTemp.isEmpty()) {
+            for (Midia musica : listTemp) {
+                System.out.println(musica.toString());
             }
+            System.out.println("ESSAS SÃO AS MÚSICAS EXISTENTES COM O TITULO INFORMADO.");
+            System.out.println("Informe o código da música que deseja editar: ");
+            codigo = ValidarEntradaUsuario.nextInt(codigo);
+            for (Musica musica : listTemp) {
+                if (musica.getCodigo().equalsIgnoreCase(codigo)) {
+                    System.out.println("Tecle ENTER caso não deseje editar este item.");
+                    System.out.println("Novo titulo da Música: ");
+                    titulo = ValidarEntradaUsuario.entradaEnterTexto(titulo);
+                    if (titulo.equals("")) {
+                    } else {
+                        musica.setTitulo(titulo);
+                    }
+                    System.out.println("Tecle ENTER caso não deseje editar este item.");
+                    System.out.println("Nova descrição da Música: ");
+                    desc = ValidarEntradaUsuario.entradaEnterTexto(desc);
+                    if (desc.equals("")) {
+                    } else {
+                        musica.setDescricao(desc);
+                    }
+                    System.out.println("Tecle ENTER caso não deseje editar este item.");
+                    System.out.println("Novo genero da Música: ");
+                    genero = ValidarEntradaUsuario.entradaEnterTexto(genero);
+                    if (genero.equals("")) {
+                    } else {
+                        musica.setGenero(genero);
+                    }
+                    System.out.println("Tecle ENTER caso não deseje editar este item.");
+                    System.out.println("Novo idioma da Música: ");
+                    idioma = ValidarEntradaUsuario.entradaEnterTexto(idioma);
+                    if (idioma.equals("")) {
+                    } else {
+                        musica.setIdioma(idioma);
+                    }
+                    System.out.println("Tecle ENTER caso não deseje editar este item.");
+                    System.out.println("Novo nome dos autores da Música:");
+                    autores = ValidarEntradaUsuario.entradaEnterTexto(autores);
+                    if (autores.equals("")) {
+                    } else {
+                        musica.setAutores(autores);
+                    }
+                    System.out.println("Tecle ENTER caso não deseje editar este item.");
+                    System.out.println("Novos nomes dos interpretes:");
+                    interpretes = ValidarEntradaUsuario.entradaEnterTexto(interpretes);
+                    if (interpretes.equals("")) {
+                    } else {
+                        musica.setInterprete(interpretes);
+                    }
+                    System.out.println("Tecle ENTER caso não deseje editar este item.");
+                    System.out.println("Novo ano de lançamento: ");
+                    ano = ValidarEntradaUsuario.entradaEnterNumero(ano);
+                    if (ano.equals("")) {
+                    } else {
+                        musica.setAno(ano);
+                    }
+                    System.out.println("Tecle ENTER caso não deseje editar este item.");
+                    System.out.println("Nova duração do filme em minutos: ");
+                    duracao = ValidarEntradaUsuario.entradaEnterNumero(duracao);
+                    if (duracao.equals("")) {
+                    } else {
+                        musica.setDuracao(duracao);
+                    }
+                    if (gerenciadorMusica.edicao(musica)) {
+                        System.out.println("\nMúsica editada com sucesso!!\n");
+                        return true;
+                    }
+                } else {
+                    System.out.println("Código inválido. Tente novamente.");
+                }
+            }
+            return false;
+        } else {
+            System.out.println("Música inexistente.");
+            return false;
         }
-        return false;
     }
 }
